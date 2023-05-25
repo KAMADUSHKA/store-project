@@ -1,5 +1,7 @@
 import React from 'react'
 import '../Style/Style.css'
+import TextField from '@mui/material/TextField';
+
 
 export default function Login() {
 
@@ -17,11 +19,15 @@ export default function Login() {
                             
                              <div id='input'>
                                 <lable>User Nmae : </lable>
-                                <input type='email'id='inputf'  placeholder='Enter User Name ' /><br/><br/>
+                                {/* <input type='email'id='inputf'  placeholder='Enter User Name ' /> */}
+                                <TextField  id="standard-basic" label="User Name" variant="standard" />
+                                <br/><br/>
                              </div>
                               <div id='input'>
                                 <lable>Password : </lable>
-                                <input type='password' id='inputf' placeholder='Enter Your Password ' /><br/><br/>
+                                {/* <input type='password' id='inputf' placeholder='Enter Your Password ' /> */}
+                                <TextField id="standard-basic" label="Password" variant="standard" />
+                                <br/><br/>
                               </div>
                           </div>
             
@@ -32,6 +38,7 @@ export default function Login() {
                     </div>
             
             </fieldset>
+            
             
             </div>
   )
