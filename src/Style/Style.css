@@ -240,11 +240,11 @@
      /*  DigiBill  */
 
 #table{
-    height: 20rem;
-    width: 40rem;
+    height: 30rem;
+    width: 50rem;
     align-items: center;
     justify-content: center;
     display: flex;
-    background-color: #db15c162;
+    background-color: #db15c106;
     margin: auto;
 }
