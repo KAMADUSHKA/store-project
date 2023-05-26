@@ -40,4 +40,12 @@
     /* position: fixed; */
     
 }
+ #NavBar-Btn:hover{
+    /* background-color: rgba(0, 0, 255, 0.974); */
+    transition: background-color 0.3s ease;
+    color: black;
+    /* transform: scale(1.01); */
+    font-size: larger;
+
+ }
 
