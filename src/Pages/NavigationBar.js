@@ -9,9 +9,9 @@ const HomeLogin = () => window.location.href ='/';
   return (
     <div id='NavBar'>
         <div id='NavBar-Data'>
-            <img src={AdeonaLogo} alt='Adeona Logo'  id='NavImg'/>
+            {/* <img src={AdeonaLogo} alt='Adeona Logo'  id='NavImg'/> */}
             <span id='NavBar-Text'>Adeona Technology</span> 
-            <button id='NavBar-Btn' onClick={HomeLogin}> Login </button>   
+            {/* <button id='NavBar-Btn' onClick={HomeLogin}> Login </button>  */}
         </div> 
     </div>
   )
