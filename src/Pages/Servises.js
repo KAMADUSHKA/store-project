@@ -85,7 +85,4 @@ const goSmartCnt = () => window.location.href = '/SmartCnt'
 }
 
 
-{/* <div id='image-Area'>
-<img src={DigiBill} alt='' id='Server-Image'/><br/>
-<span id='Server-Text'>Digi Bill</span>
-</div> */}
+

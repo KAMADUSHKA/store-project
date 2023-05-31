@@ -10,6 +10,8 @@ import InApp from "./Pages/InApp";
 import EBCM from "./Pages/EBCM";
 import SmartCnt from "./Pages/SmartCnt";
 import VCard from './Pages/VCard';
+import Cards from './Pages/Cards'
+
 
 
 function App() {
@@ -38,7 +40,9 @@ function App() {
             <Route path="/VCard"
                    element = { <VCard/> } /> 
             <Route path="/SmartCnt"
-                   element = { <SmartCnt/> } />  
+                   element = { <SmartCnt/> } />
+             <Route path="/Cards"
+                   element = { <Cards/> } />        
         </Routes>
      </BrowserRouter>
     </div>
