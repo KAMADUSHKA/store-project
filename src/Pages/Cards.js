@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Avatar,
+  Box,
   Card,
   CardActionArea,
   CardActions,
@@ -8,8 +9,11 @@ import {
   CardHeader,
   CardMedia,
   Container,
+  Divider,
   Grid,
   IconButton,
+  Stack,
+  SvgIcon,
   Typography,
 } from "@mui/material";
 import DigiBill from "../componant/DigiBill.png";
@@ -24,6 +28,7 @@ import { red } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { Margin } from "@mui/icons-material";
 
 export default function Cards() {
   const data = [
@@ -70,37 +75,51 @@ export default function Cards() {
   ];
 
   const cardData = (cardData, key) => (
-    <Grid key={key} item xs={4} sm={3} md={2.4} lg={2} xl={1.5}>
-      <Card sx={{ maxWidth: 345 }} elevation={10}>
-        <CardHeader
-          avatar={
-            <Avatar sx={{ height:35 }} aria-label="recipe" src="https://dsuabgmmtxmj1.cloudfront.net/companyweb/AdeonaLogo.png">
-              R
-            </Avatar>
-          }
-          title="Shrimp and Chorizo Paella  "
-          subheader="September 14, 2016"
-        />
+    <Grid key={key} item xs={6} sm={4} md={3} lg={2.4} xl={2.4}>
+      <Card sx={{ Width: 345, height: 280, borderRadius: 6 }} elevation={10}>
+        <CardActionArea sx={{ height: 300 }}>
+          <CardHeader
+            sx={{
+              flexDirection: "column",
+              justifyContent: "center",
+              textAlign: "center",
+              height: 120,
+              overflow: "scroll",
+            }}
+            avatar={
+              <Avatar
+                sx={{ height: 55, width: 55 }}
+                aria-label="recipe"
+                src="https://dsuabgmmtxmj1.cloudfront.net/companyweb/adeona_new_logo_circle.png"
+              />
+            }
+            title={
+              <Typography gutterBottom variant="h5" component="h2">
+                {cardData.name}
+              </Typography>
+            }
+            subheader="06,14,2023"
+          />
 
-        <CardActionArea>
-          <CardMedia
+          {/* <CardMedia
             component="img"
             height="200"
             image={cardData.image}
             alt={cardData.alt}
-          />
+          /> */}
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              This impressive paella is a perfect party dish and a fun meal to
-              cook together with your guests. 
+              This impressive paella is a
             </Typography>
           </CardContent>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="delete">
-            <DeleteIcon />
-          </IconButton>
+          <CardActions sx={{}}>
+            <IconButton aria-label="add to favorites">
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton aria-label="delete">
+              <DeleteIcon />
+            </IconButton>
+          </CardActions>
         </CardActionArea>
       </Card>
     </Grid>
@@ -115,8 +134,10 @@ export default function Cards() {
           {data.map((card, key) => cardData(card, key))}
         </Grid>
       </Container>
-  
-      
+
+      <br />
+      <br />
+
       <br />
       <br />
       <br />
