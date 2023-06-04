@@ -14,6 +14,7 @@ import {
   IconButton,
   Stack,
   SvgIcon,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import DigiBill from "../componant/DigiBill.png";
@@ -36,55 +37,64 @@ export default function Cards() {
       image: DigiBill,
       alt: "DigiBill",
       name: "Digi Bill",
+      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
     },
     {
       image: SmartPose,
       alt: "SmartPose",
       name: "Smart Pose",
+      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
     },
     {
       image: SmartMsg,
       alt: "SmartMsg",
       name: "Smart Messenger",
+      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
     },
     {
       image: CocaCola,
       alt: "CocaCola",
       name: "CocaCola Management",
+      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy  ",
     },
     {
       image: InApp,
       alt: "InApp",
       name: "In App",
+      content: "This impressive paella is a ",
     },
     {
       image: EBCM,
       alt: "EBCM",
       name: "EBCM",
+      content:
+        "This impressive paella is a  fgfdtgy ytfgyugy ytftgy This impressive paella is a This impressive paella is a ABC SAB",
     },
     {
       image: V_Cart,
       alt: "V_Cart",
       name: "V-Card",
+      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
     },
     {
       image: SmartCnt,
       alt: "SmartCnt",
       name: "Smart Connector",
+      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
     },
   ];
 
   const cardData = (cardData, key) => (
     <Grid key={key} item xs={6} sm={4} md={3} lg={2.4} xl={2.4}>
-      <Card sx={{ Width: 345, height: 280, borderRadius: 6 }} elevation={10}>
+      <Card sx={{ Width: 345, height: 300, borderRadius: 6 }} elevation={10}>
         <CardActionArea sx={{ height: 300 }}>
           <CardHeader
             sx={{
               flexDirection: "column",
               justifyContent: "center",
               textAlign: "center",
-              height: 120,
-              overflow: "scroll",
+              height: 140,
+              overflow: "hidden",
             }}
             avatar={
               <Avatar
@@ -100,18 +110,14 @@ export default function Cards() {
             }
             subheader="06,14,2023"
           />
-
-          {/* <CardMedia
-            component="img"
-            height="200"
-            image={cardData.image}
-            alt={cardData.alt}
-          /> */}
-          <CardContent>
-            <Typography variant="body2" color="text.secondary">
-              This impressive paella is a
-            </Typography>
-          </CardContent>
+          <Tooltip title={cardData.content}>
+            <CardContent sx={{ height: 40 }}>
+              <Typography variant="body2" color="text.secondary">
+                {cardData.content.substring(0, 80) +
+                  (cardData.content.length > 80 ? "..." : "")}
+              </Typography>
+            </CardContent>
+          </Tooltip>
           <CardActions sx={{}}>
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
@@ -137,7 +143,6 @@ export default function Cards() {
 
       <br />
       <br />
-
       <br />
       <br />
       <br />
