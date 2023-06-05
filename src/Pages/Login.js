@@ -41,6 +41,7 @@ export default function Login() {
   const handleLogin = (values, setSubmitting) => {
     setSubmitting(false);
     console.log("User Data:", values);
+     window.location.href = '/Cards'
   };
 
   const validationSchema = Yup.object().shape({

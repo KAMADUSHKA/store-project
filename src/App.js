@@ -11,6 +11,7 @@ import EBCM from "./Pages/EBCM";
 import SmartCnt from "./Pages/SmartCnt";
 import VCard from './Pages/VCard';
 import Cards from './Pages/Cards'
+import AddCard from "./Pages/AddCard";
 
 
 
@@ -42,7 +43,9 @@ function App() {
             <Route path="/SmartCnt"
                    element = { <SmartCnt/> } />
              <Route path="/Cards"
-                   element = { <Cards/> } />        
+                   element = { <Cards/> } />  
+             <Route path ='/AddCard'
+                   element={ <AddCard/> } />      
         </Routes>
      </BrowserRouter>
     </div>

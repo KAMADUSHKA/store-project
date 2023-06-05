@@ -37,6 +37,7 @@ import { Margin } from "@mui/icons-material";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
+import { useNavigate } from "react-router-dom";
 
 const dataCard = [
   {
@@ -91,6 +92,8 @@ const dataCard = [
 ];
 
 export default function Cards() {
+
+  const navigate = useNavigate();
   const [page, setPage] = React.useState(1);
   let [data, setData] = useState([]);
 
@@ -234,9 +237,10 @@ export default function Cards() {
       </Box>
       <Container>
         <br/>
-        <Button variant="contained" disableElevation>
-          Disable elevation
+        <Button variant="contained"  sx={{position:"absolute", right:10, borderRadius: 2 }} onClick={()=>{navigate('/AddCard')}}>
+          + Add Card
         </Button>
+        <br/>
         <Grid container spacing={2} marginTop={3}>
           {data.map((card, key) => cardData(card, key))}
         </Grid>
@@ -244,7 +248,7 @@ export default function Cards() {
         <br />
         <br />
 
-        <Stack spacing={2}>
+        <Stack spacing={3} justifyContent="center" alignItems="center">
           <Typography>Page: {page}</Typography>
           <Pagination count={10} page={page} onChange={handleChange} />
         </Stack>
