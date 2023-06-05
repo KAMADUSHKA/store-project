@@ -25,7 +25,7 @@ function App() {
                    element = { <Login/> } />
             <Route path = "/Servises"
                    element = { <Servises/> } />
-            <Route path = "DigiBill"
+            <Route path = "/DigiBill"
                    element = { <DigiBill/> } />
             <Route path="/SmartPose"
                    element = { <SmartPose/> } /> 
