@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState, useEffect } from "react";
 import {
   Avatar,
   Box,
@@ -12,6 +12,7 @@ import {
   Divider,
   Grid,
   IconButton,
+  Pagination,
   Stack,
   SvgIcon,
   Tooltip,
@@ -31,58 +32,79 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Margin } from "@mui/icons-material";
 
+const dataCard = [
+  {
+    image: DigiBill,
+    alt: "DigiBill",
+    name: "Digi Bill",
+    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+  },
+  {
+    image: SmartPose,
+    alt: "SmartPose",
+    name: "Smart Pose",
+    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+  },
+  {
+    image: SmartMsg,
+    alt: "SmartMsg",
+    name: "Smart Messenger",
+    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+  },
+  {
+    image: CocaCola,
+    alt: "CocaCola",
+    name: "CocaCola Management",
+    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy  ",
+  },
+  {
+    image: InApp,
+    alt: "InApp",
+    name: "In App",
+    content: "This impressive paella is a ",
+  },
+  {
+    image: EBCM,
+    alt: "EBCM",
+    name: "EBCM",
+    content:
+      "This impressive paella is a  fgfdtgy ytfgyugy ytftgy This impressive paella is a This impressive paella is a ABC SAB",
+  },
+  {
+    image: V_Cart,
+    alt: "V_Cart",
+    name: "V-Card",
+    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+  },
+  {
+    image: SmartCnt,
+    alt: "SmartCnt",
+    name: "Smart Connector",
+    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+  },
+];
+
+
+
+
 export default function Cards() {
-  const data = [
-    {
-      image: DigiBill,
-      alt: "DigiBill",
-      name: "Digi Bill",
-      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
-    },
-    {
-      image: SmartPose,
-      alt: "SmartPose",
-      name: "Smart Pose",
-      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
-    },
-    {
-      image: SmartMsg,
-      alt: "SmartMsg",
-      name: "Smart Messenger",
-      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
-    },
-    {
-      image: CocaCola,
-      alt: "CocaCola",
-      name: "CocaCola Management",
-      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy  ",
-    },
-    {
-      image: InApp,
-      alt: "InApp",
-      name: "In App",
-      content: "This impressive paella is a ",
-    },
-    {
-      image: EBCM,
-      alt: "EBCM",
-      name: "EBCM",
-      content:
-        "This impressive paella is a  fgfdtgy ytfgyugy ytftgy This impressive paella is a This impressive paella is a ABC SAB",
-    },
-    {
-      image: V_Cart,
-      alt: "V_Cart",
-      name: "V-Card",
-      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
-    },
-    {
-      image: SmartCnt,
-      alt: "SmartCnt",
-      name: "Smart Connector",
-      content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
-    },
-  ];
+  const [page, setPage] = React.useState(1);
+  let [ data, setData] =useState([]);
+
+
+  // useEffect(() => {
+  //   setData(dataCard.slice(0, 4));
+  // }, [page]);
+
+
+  const handleChange = (event, value) => {
+    setPage(value);
+
+    const startCard = (value - 1)*4;
+    const endCard = startCard + 4
+    setData(dataCard.slice(startCard,endCard));
+    
+  };
 
   const cardData = (cardData, key) => (
     <Grid key={key} item xs={6} sm={4} md={3} lg={2.4} xl={2.4}>
@@ -131,6 +153,8 @@ export default function Cards() {
     </Grid>
   );
 
+ 
+
   //======//
 
   return (
@@ -139,6 +163,14 @@ export default function Cards() {
         <Grid container spacing={2} marginTop={3}>
           {data.map((card, key) => cardData(card, key))}
         </Grid>
+
+        <br />
+        <br />
+
+        <Stack spacing={2}>
+          <Typography>Page: {page}</Typography>
+          <Pagination count={10} page={page} onChange={handleChange} />
+        </Stack>
       </Container>
 
       <br />
