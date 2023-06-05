@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {
+  AppBar,
   Avatar,
   Box,
+  Button,
   Card,
   CardActionArea,
   CardActions,
@@ -15,6 +17,7 @@ import {
   Pagination,
   Stack,
   SvgIcon,
+  Toolbar,
   Tooltip,
   Typography,
 } from "@mui/material";
@@ -31,6 +34,9 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Margin } from "@mui/icons-material";
+import { styled, alpha } from "@mui/material/styles";
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
 
 const dataCard = [
   {
@@ -84,26 +90,62 @@ const dataCard = [
   },
 ];
 
-
-
-
 export default function Cards() {
   const [page, setPage] = React.useState(1);
-  let [ data, setData] =useState([]);
+  let [data, setData] = useState([]);
 
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    "&:hover": {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: theme.spacing(1),
+      width: "auto",
+    },
+  }));
 
-  // useEffect(() => {
-  //   setData(dataCard.slice(0, 4));
-  // }, [page]);
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }));
 
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "inherit",
+    "& .MuiInputBase-input": {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("sm")]: {
+        width: "12ch",
+        "&:focus": {
+          width: "20ch",
+        },
+      },
+    },
+  }));
+
+  useEffect(() => {
+    setData(dataCard.slice(0, 5));
+  }, []);
 
   const handleChange = (event, value) => {
     setPage(value);
 
-    const startCard = (value - 1)*4;
-    const endCard = startCard + 4
-    setData(dataCard.slice(startCard,endCard));
-    
+    const startCard = (value - 1) * 5;
+    const endCard = startCard + 5;
+    setData(dataCard.slice(startCard, endCard));
   };
 
   const cardData = (cardData, key) => (
@@ -153,13 +195,48 @@ export default function Cards() {
     </Grid>
   );
 
- 
-
   //======//
 
   return (
     <>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <Avatar
+              sx={{ height: 55, width: 55 }}
+              aria-label="recipe"
+              src="https://dsuabgmmtxmj1.cloudfront.net/companyweb/adeona_new_logo_circle.png"
+            />
+            &nbsp;&nbsp;
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", sm: "block" },
+                fontFamily: "'Great Vibes', cursive",
+              }}
+            >
+              Adeona Technogy
+            </Typography>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+          </Toolbar>
+        </AppBar>
+      </Box>
       <Container>
+        <br/>
+        <Button variant="contained" disableElevation>
+          Disable elevation
+        </Button>
         <Grid container spacing={2} marginTop={3}>
           {data.map((card, key) => cardData(card, key))}
         </Grid>
