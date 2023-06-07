@@ -29,11 +29,8 @@ import InApp from "../componant/InApp.png";
 import EBCM from "../componant/EBCM.png";
 import V_Cart from "../componant/V_Cart.png";
 import SmartCnt from "../componant/SmartCnt.png";
-import { red } from "@mui/material/colors";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Margin } from "@mui/icons-material";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
@@ -43,56 +40,63 @@ const dataCard = [
   {
     image: DigiBill,
     alt: "DigiBill",
-    name: "Digi Bill",
-    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    cardName: "Digi Bill",
+    cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
   },
   {
     image: SmartPose,
     alt: "SmartPose",
-    name: "Smart Pose",
-    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    cardName: "Smart Pose",
+    cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
   },
   {
     image: SmartMsg,
     alt: "SmartMsg",
-    name: "Smart Messenger",
-    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    cardName: "Smart Messenger",
+    cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
   },
   {
     image: CocaCola,
     alt: "CocaCola",
-    name: "CocaCola Management",
-    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy  ",
+    cardName: "CocaCola Management",
+    cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy  ",
   },
   {
     image: InApp,
     alt: "InApp",
-    name: "In App",
-    content: "This impressive paella is a ",
+    cardName: "In App",
+    cardDetails: "This impressive paella is a ",
   },
   {
     image: EBCM,
     alt: "EBCM",
-    name: "EBCM",
-    content:
+    cardName: "EBCM",
+    cardDetails:
       "This impressive paella is a  fgfdtgy ytfgyugy ytftgy This impressive paella is a This impressive paella is a ABC SAB",
   },
   {
     image: V_Cart,
     alt: "V_Cart",
-    name: "V-Card",
-    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    cardName: "V-Card",
+    cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
   },
   {
     image: SmartCnt,
     alt: "SmartCnt",
-    name: "Smart Connector",
-    content: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    cardName: "Smart Connector",
+    cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
   },
 ];
 
-export default function Cards() {
 
+dataCard.push({
+  image: EBCM,
+  alt: "EBCM",
+  cardName: "EBCM",
+  cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy This impressive paella is a This impressive paella is a ABC SAB",
+});
+
+export default function Cards() {
   const navigate = useNavigate();
   const [page, setPage] = React.useState(1);
   let [data, setData] = useState([]);
@@ -172,16 +176,16 @@ export default function Cards() {
             }
             title={
               <Typography gutterBottom variant="h5" component="h2">
-                {cardData.name}
+                {cardData.cardName}
               </Typography>
             }
             subheader="06,14,2023"
           />
-          <Tooltip title={cardData.content}>
+          <Tooltip title={cardData.cardDetails}>
             <CardContent sx={{ height: 40 }}>
               <Typography variant="body2" color="text.secondary">
-                {cardData.content.substring(0, 80) +
-                  (cardData.content.length > 80 ? "..." : "")}
+                {cardData.cardDetails.substring(0, 80) +
+                  (cardData.cardDetails.length > 80 ? "..." : "")}
               </Typography>
             </CardContent>
           </Tooltip>
@@ -236,11 +240,17 @@ export default function Cards() {
         </AppBar>
       </Box>
       <Container>
-        <br/>
-        <Button variant="contained"  sx={{position:"absolute", right:10, borderRadius: 2 }} onClick={()=>{navigate('/AddCard')}}>
+        <br />
+        <Button
+          variant="contained"
+          sx={{ position: "absolute", right: 10, borderRadius: 2 }}
+          onClick={() => {
+            navigate("/AddCard");
+          }}
+        >
           + Add Card
         </Button>
-        <br/>
+        <br />
         <Grid container spacing={2} marginTop={3}>
           {data.map((card, key) => cardData(card, key))}
         </Grid>

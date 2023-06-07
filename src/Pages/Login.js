@@ -41,7 +41,7 @@ export default function Login() {
   const handleLogin = (values, setSubmitting) => {
     setSubmitting(false);
     console.log("User Data:", values);
-     window.location.href = '/Cards'
+    window.location.href = "/Cards";
   };
 
   const validationSchema = Yup.object().shape({
@@ -55,100 +55,113 @@ export default function Login() {
       ),
   });
 
-
   return (
     <>
       <Formik
-         initialValues={{ username: "", password: ""}}
-         validationSchema={validationSchema}
-         onSubmit={(values,{setSubmitting})=>handleLogin(values, setSubmitting)}
+        initialValues={{ username: "", password: "" }}
+        validationSchema={validationSchema}
+        onSubmit={(values, { setSubmitting }) =>
+          handleLogin(values, setSubmitting)
+        }
       >
-        {({errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values}) => (
-                    <form noValidate onSubmit={handleSubmit}>
-        <Grid container justifyContent="center" alignItems="center">
-          <Grid item sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
-            <Paper elevation={10} sx={paperStyle}>
-              <Grid align={"center"} marginTop={4}>
-                <img alt="" src={AdeonaLogo} height={70} width={110} />
-                <Typography fontSize="40px">Login</Typography>
-                <Grid item>
-                  <Stack
-                    alignItems="center"
-                    justifyContent="center"
-                    spacing={1}
-                  >
-                    <Typography
-                      fontWeight="bold"
-                      color={theme.palette.primary.main}
-                      gutterBottom
-                      variant={matchDownSM ? "h3" : "h2"}
+        {({
+          errors,
+          handleBlur,
+          handleChange,
+          handleSubmit,
+          isSubmitting,
+          touched,
+          values,
+        }) => (
+          <form noValidate onSubmit={handleSubmit}>
+            <Grid container justifyContent="center" alignItems="center">
+              <Grid item sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
+                <Paper elevation={10} sx={paperStyle}>
+                  <Grid align={"center"} marginTop={4}>
+                    <img alt="" src={AdeonaLogo} height={70} width={110} />
+                    <Typography fontSize="40px">Login</Typography>
+                    <Grid item>
+                      <Stack
+                        alignItems="center"
+                        justifyContent="center"
+                        spacing={1}
+                      >
+                        <Typography
+                          fontWeight="bold"
+                          color={theme.palette.primary.main}
+                          gutterBottom
+                          variant={matchDownSM ? "h3" : "h2"}
+                        >
+                          Hi, Welcome
+                        </Typography>
+                        <Typography
+                          variant="caption"
+                          fontSize="16px"
+                          textAlign={matchDownSM ? "center" : "inherit"}
+                        >
+                          Enter your credentials to continue
+                        </Typography>
+                      </Stack>
+                    </Grid>
+                    <br />
+                    <ModifiedTextField
+                      id="outlined-basic"
+                      label="User Name"
+                      name="username"
+                      placeholder="Enter Your UserName"
+                      variant="outlined"
+                      fullWidth
+                      value={values.username}
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      helperText={errors.username}
+                      error={Boolean(touched.username && errors.username)}
+                    />
+                    <br />
+                    <br />
+                    <ModifiedTextField
+                      id="outlined-basic"
+                      label="Password"
+                      name="password"
+                      placeholder="Enter your Password"
+                      variant="outlined"
+                      fullWidth
+                      type={showPassword ? "text" : "password"}
+                      value={values.password}
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      helperText={errors.password}
+                      error={Boolean(touched.password && errors.password)}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton onClick={togglePasswordVisibility}>
+                              {showPassword ? (
+                                <Visibility />
+                              ) : (
+                                <VisibilityOff />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                    <br />
+                    <br />
+                    <Button
+                      disabled={isSubmitting}
+                      type="submit"
+                      variant="contained"
+                      fullWidth
+                      sx={{ borderRadius: 3 }}
                     >
-                      Hi, Welcome
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      fontSize="16px"
-                      textAlign={matchDownSM ? "center" : "inherit"}
-                    >
-                      Enter your credentials to continue
-                    </Typography>
-                  </Stack>
-                </Grid>
-                <br />
-                <ModifiedTextField
-                  id="outlined-basic"
-                  label="User Name"
-                  name="username"
-                  placeholder="Enter Your UserName"
-                  variant="outlined"
-                  fullWidth
-                  value={values.username}
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  helperText={errors.username}
-                  error={Boolean(touched.username && errors.username)}
-                />
-                <br />
-                <br />
-                <ModifiedTextField
-                  id="outlined-basic"
-                  label="Password"
-                  name="password"
-                  placeholder="Enter your Password"
-                  variant="outlined"
-                  fullWidth
-                  type={showPassword ? "text" : "password"}
-                  value={values.password}
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  helperText={errors.password}
-                  error={Boolean(touched.password && errors.password)}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <IconButton onClick={togglePasswordVisibility}>
-                          {showPassword ? <Visibility /> : <VisibilityOff />}
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-                <br />
-                <br />
-                <Button
-                disabled={isSubmitting}
-                type="submit"
-                  variant="contained"
-                  fullWidth
-                  sx={{ borderRadius: 3 }}
-                >
-                  LOGIN
-                </Button>
+                      LOGIN
+                    </Button>
+                  </Grid>
+                </Paper>
               </Grid>
-            </Paper>
-          </Grid>
-        </Grid>
-        </form>
+            </Grid>
+          </form>
         )}
       </Formik>
     </>
