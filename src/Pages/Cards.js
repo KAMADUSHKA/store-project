@@ -89,12 +89,7 @@ const dataCard = [
 ];
 
 
-dataCard.push({
-  image: EBCM,
-  alt: "EBCM",
-  cardName: "EBCM",
-  cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy This impressive paella is a This impressive paella is a ABC SAB",
-});
+
 
 export default function Cards() {
   const navigate = useNavigate();
@@ -155,7 +150,7 @@ export default function Cards() {
     setData(dataCard.slice(startCard, endCard));
   };
 
-  const cardData = (cardData, key) => (
+  const cardData = (item, key) => (
     <Grid key={key} item xs={6} sm={4} md={3} lg={2.4} xl={2.4}>
       <Card sx={{ Width: 345, height: 300, borderRadius: 6 }} elevation={10}>
         <CardActionArea sx={{ height: 300 }}>
@@ -176,16 +171,16 @@ export default function Cards() {
             }
             title={
               <Typography gutterBottom variant="h5" component="h2">
-                {cardData.cardName}
+                {item.cardName}
               </Typography>
             }
             subheader="06,14,2023"
           />
-          <Tooltip title={cardData.cardDetails}>
+          <Tooltip title={item.cardDetails}>
             <CardContent sx={{ height: 40 }}>
               <Typography variant="body2" color="text.secondary">
-                {cardData.cardDetails.substring(0, 80) +
-                  (cardData.cardDetails.length > 80 ? "..." : "")}
+                {item.cardDetails.substring(0, 80) +
+                  (item.cardDetails.length > 80 ? "..." : "")}
               </Typography>
             </CardContent>
           </Tooltip>
