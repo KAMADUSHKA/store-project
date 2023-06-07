@@ -10,43 +10,83 @@ import {
   Divider,
   Grid,
   Stack,
-
   Typography,
 } from "@mui/material";
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import { ModifiedTextField } from "../Theam/Theam";
 
 import { Formik, useField, useFormikContext } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
-export default function AddCard( name) {
+export default function AddCard() {
+
+  const navigate = useNavigate();
   const handleCreating = (values) => {
     console.log("User Data:", values);
+    navigate("/Cards");
   };
 
   const validationSchema = Yup.object().shape({
     cardName: Yup.string().required("Username is required"),
     cardDetails: Yup.string().required("Username is required"),
+    profile: Yup.mixed()
+    .nullable()
+    .notRequired()
+    .test(
+        "FILE_SIZE",
+        "Uploaded file is too big.",
+        ({file: value}) => !value || (value && value?.size <= 200000)
+    )
+    .test(
+        "FILE_FORMAT",
+        "Uploaded file has unsupported format.",
+        ({file: value}) =>
+            !value ||
+            (value && "image/jpg,image/jpeg,image/png,".includes(`${value?.type},`))
+    ),
   });
 
-  // const fileInput = useRef(null);
-  // const {setFiledValue} = useFormikContext();
-  // const [ field, meta ] = useField(name);
-  // const [ url, setUrl] = useState(null);
+  const handleUploadClick = () => {
+    fileInputField.current.click();
+  };
+
+  const fileInputField = useRef(null);
+
+  const [image, setImage] = useState("")
+
+  const handleUpload = (e, setFiledValue) => {
+    // const file = e.target.files[0];
+    // setFieldValue('name', newFiles[0]);
+    // setImage( file);
+    const {files: newFiles} = e.target;
+        if (newFiles.length) {
+            // console.log("file name", name);
+            setFiledValue('profile', newFiles[0]);
+            setUrl(URL.createObjectURL(newFiles[0]));
+        }
   
+    
+  }
+console.log(image)
+
+
+  // const {setFiledValue} = useFormikContext();
+  
+  const [ url, setUrl] = useState(null);
 
   // const handleUpload = (e) => {
-  //   const {files: newFiles} = e.target;
-  //   if(newFiles.length){
-  //     setFiledValue(name, newFiles[0])
-  //     setUrl(URL.createObjectURL(newFiles[0]))
-  //   }
-  // }
+  //   // const {files: newFiles} = e.target;
+  //   // if(newFiles.length){
+  //   //   setFiledValue(name, newFiles[0])
+  //   //   setUrl(URL.createObjectURL(newFiles[0]))
+  //   // }
+  // };
 
   return (
     <>
       <Formik
-        initialValues={{ cardName: "", cardDetails: "" }}
+        initialValues={{ cardName: "", cardDetails: "", profile: {} }}
         validationSchema={validationSchema}
         onSubmit={(values) => handleCreating(values)}
       >
@@ -59,6 +99,7 @@ export default function AddCard( name) {
           handleChange,
           handleSubmit,
           isValid,
+          setFieldValue
         }) => (
           <form noValidate onSubmit={handleSubmit}>
             <Box
@@ -91,7 +132,7 @@ export default function AddCard( name) {
                               }}
                             >
                               <Avatar
-                                src='https://dsuabgmmtxmj1.cloudfront.net/companyweb/adeona_new_logo_circle.png'
+                                src="https://dsuabgmmtxmj1.cloudfront.net/companyweb/adeona_new_logo_circle.png"
                                 sx={{
                                   height: 110,
                                   mb: 2,
@@ -102,17 +143,22 @@ export default function AddCard( name) {
                           </CardContent>
                           <Divider />
                           <CardActions>
-                            <Button fullWidth variant="text">
+                            <Button
+                              fullWidth
+                              variant="text"
+                              onClick={handleUploadClick}
+                            >
+                              
                               Upload picture
                             </Button>
                             <input
-                                type="file"
-                                // ref={fileInput}
-                                // onChange={handleUpload}
-                                title=""
-                                value=""
-                               style={{display:"block", opacity: 0, width: 0}}
-                                />
+                              type="file"
+                              ref={fileInputField}
+                              onChange={(e)=>handleUpload(e,setFieldValue)}
+                              title=""
+                              value=""
+                              style={{ display: "block", opacity: 0, width: 0 }}
+                            />
                           </CardActions>
                         </Card>
                       </Grid>
@@ -165,7 +211,6 @@ export default function AddCard( name) {
                                 <Button
                                   type="submit"
                                   variant="contained"
-                                  // disabled={isSubmitting}
                                   disabled={!(isValid || isSubmitting)}
                                   sx={{
                                     flexDirection: "column",
@@ -177,7 +222,6 @@ export default function AddCard( name) {
                                 >
                                   Create Card
                                 </Button>
-                               
                               </Grid>
                             </Box>
                           </CardContent>
