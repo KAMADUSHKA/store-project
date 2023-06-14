@@ -95,7 +95,7 @@ export default function AddCard() {
               <Container maxWidth="lg" sx={{ padding: 6 }}>
                 <Stack spacing={3}>
                   <div>
-                    <Typography variant="h4">Add Package</Typography>
+                    <Typography variant="h4">Add Card</Typography>
                     <br />
                   </div>
                   <div>
@@ -162,7 +162,7 @@ export default function AddCard() {
                                 <Grid item xs={12} md={6} padding={1}>
                                   <ModifiedTextField
                                     fullWidth
-                                    label="Package Name"
+                                    label="Card Name"
                                     name="cardName"
                                     value={values.cardName}
                                     onBlur={handleBlur}
@@ -177,7 +177,7 @@ export default function AddCard() {
                                 <Grid item xs={12} md={6} padding={1}>
                                   <ModifiedTextField
                                     fullWidth
-                                    label="Package Details"
+                                    label="Card Details"
                                     name="cardDetails"
                                     value={values.cardDetails}
                                     onBlur={handleBlur}
@@ -188,33 +188,8 @@ export default function AddCard() {
                                     )}
                                     required
                                   />
-                                  
-                                </Grid>
-                                <Grid item xs={12} md={6} padding={1}>
-                                  <ModifiedTextField
-                                    fullWidth
-                                    label="Location"
-                                    name="cardDetails"
-                                    
-                                   
-                                    required
-                                  />
-                                  
-                                </Grid>
-                                <Grid item xs={12} md={6} padding={1}>
-                                  <ModifiedTextField
-                                    fullWidth
-                                    label="Amount"
-                                    name="cardDetails"
-                                    
-                                   
-                                    required
-                                  />
-                                  
                                 </Grid>
 
-                                
-                                
                                 <Divider />
                                 <Button
                                   type="submit"
