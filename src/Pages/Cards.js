@@ -139,14 +139,14 @@ export default function Cards() {
   }));
 
   useEffect(() => {
-    setData(dataCard.slice(0, 5));
+    setData(dataCard.slice(0, 4));
   }, []);
 
   const handleChange = (event, value) => {
     setPage(value);
 
-    const startCard = (value - 1) * 5;
-    const endCard = startCard + 5;
+    const startCard = (value - 1) * 4;
+    const endCard = startCard + 4;
     setData(dataCard.slice(startCard, endCard));
   };
 
