@@ -184,7 +184,7 @@ export default function Cards() {
               </Typography>
             </CardContent>
           </Tooltip>
-          <CardActions sx={{}}>
+          <CardActions sx={{}}>         
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
             </IconButton>

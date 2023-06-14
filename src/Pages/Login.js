@@ -10,7 +10,7 @@ import {
   IconButton,
   Stack,
   Typography,
-  useMediaQuery,
+  useMediaQuery
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { ModifiedTextField } from "../Theam/Theam";

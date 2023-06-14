@@ -20,7 +20,6 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 export default function AddCard() {
-
   const navigate = useNavigate();
   const handleCreating = (values) => {
     console.log("User Data:", values);
@@ -31,20 +30,21 @@ export default function AddCard() {
     cardName: Yup.string().required("Username is required"),
     cardDetails: Yup.string().required("Username is required"),
     profile: Yup.mixed()
-    .nullable()
-    .notRequired()
-    .test(
+      .nullable()
+      .notRequired()
+      .test(
         "FILE_SIZE",
         "Uploaded file is too big.",
-        ({file: value}) => !value || (value && value?.size <= 200000)
-    )
-    .test(
+        ({ file: value }) => !value || (value && value?.size <= 200000)
+      )
+      .test(
         "FILE_FORMAT",
         "Uploaded file has unsupported format.",
-        ({file: value}) =>
-            !value ||
-            (value && "image/jpg,image/jpeg,image/png,".includes(`${value?.type},`))
-    ),
+        ({ file: value }) =>
+          !value ||
+          (value &&
+            "image/jpg,image/jpeg,image/png,".includes(`${value?.type},`))
+      ),
   });
 
   const handleUploadClick = () => {
@@ -53,35 +53,18 @@ export default function AddCard() {
 
   const fileInputField = useRef(null);
 
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState("");
 
   const handleUpload = (e, setFiledValue) => {
-    // const file = e.target.files[0];
-    // setFieldValue('name', newFiles[0]);
-    // setImage( file);
-    const {files: newFiles} = e.target;
-        if (newFiles.length) {
-            // console.log("file name", name);
-            setFiledValue('profile', newFiles[0]);
-            setUrl(URL.createObjectURL(newFiles[0]));
-        }
-  
-    
-  }
-console.log(image)
+    const { files: newFiles } = e.target;
+    if (newFiles.length) {
+      setFiledValue("profile", newFiles[0]);
+      setUrl(URL.createObjectURL(newFiles[0]));
+    }
+  };
+  console.log(image);
 
-
-  // const {setFiledValue} = useFormikContext();
-  
-  const [ url, setUrl] = useState(null);
-
-  // const handleUpload = (e) => {
-  //   // const {files: newFiles} = e.target;
-  //   // if(newFiles.length){
-  //   //   setFiledValue(name, newFiles[0])
-  //   //   setUrl(URL.createObjectURL(newFiles[0]))
-  //   // }
-  // };
+  const [url, setUrl] = useState(null);
 
   return (
     <>
@@ -99,7 +82,7 @@ console.log(image)
           handleChange,
           handleSubmit,
           isValid,
-          setFieldValue
+          setFieldValue,
         }) => (
           <form noValidate onSubmit={handleSubmit}>
             <Box
@@ -112,7 +95,7 @@ console.log(image)
               <Container maxWidth="lg" sx={{ padding: 6 }}>
                 <Stack spacing={3}>
                   <div>
-                    <Typography variant="h4">Add Card</Typography>
+                    <Typography variant="h4">Add Package</Typography>
                     <br />
                   </div>
                   <div>
@@ -148,13 +131,12 @@ console.log(image)
                               variant="text"
                               onClick={handleUploadClick}
                             >
-                              
                               Upload picture
                             </Button>
                             <input
                               type="file"
                               ref={fileInputField}
-                              onChange={(e)=>handleUpload(e,setFieldValue)}
+                              onChange={(e) => handleUpload(e, setFieldValue)}
                               title=""
                               value=""
                               style={{ display: "block", opacity: 0, width: 0 }}
@@ -165,8 +147,8 @@ console.log(image)
                       <Grid item xs={12} sm={5} md={6} lg={7} xl={8} margin={2}>
                         <Card sx={{ borderRadius: 6 }}>
                           <CardHeader
-                            title="Card Data"
-                            subheader="Add data of your Card"
+                            title="Package Data"
+                            subheader="Add data of your new package"
                           ></CardHeader>
                           <CardContent>
                             <Box
@@ -180,7 +162,7 @@ console.log(image)
                                 <Grid item xs={12} md={6} padding={1}>
                                   <ModifiedTextField
                                     fullWidth
-                                    label="Card Name"
+                                    label="Package Name"
                                     name="cardName"
                                     value={values.cardName}
                                     onBlur={handleBlur}
@@ -195,7 +177,7 @@ console.log(image)
                                 <Grid item xs={12} md={6} padding={1}>
                                   <ModifiedTextField
                                     fullWidth
-                                    label="Card Details"
+                                    label="Package Details"
                                     name="cardDetails"
                                     value={values.cardDetails}
                                     onBlur={handleBlur}
@@ -206,7 +188,33 @@ console.log(image)
                                     )}
                                     required
                                   />
+                                  
                                 </Grid>
+                                <Grid item xs={12} md={6} padding={1}>
+                                  <ModifiedTextField
+                                    fullWidth
+                                    label="Location"
+                                    name="cardDetails"
+                                    
+                                   
+                                    required
+                                  />
+                                  
+                                </Grid>
+                                <Grid item xs={12} md={6} padding={1}>
+                                  <ModifiedTextField
+                                    fullWidth
+                                    label="Amount"
+                                    name="cardDetails"
+                                    
+                                   
+                                    required
+                                  />
+                                  
+                                </Grid>
+
+                                
+                                
                                 <Divider />
                                 <Button
                                   type="submit"
@@ -220,7 +228,7 @@ console.log(image)
                                     borderRadius: 3,
                                   }}
                                 >
-                                  Create Card
+                                  Create Package
                                 </Button>
                               </Grid>
                             </Box>
