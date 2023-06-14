@@ -31,9 +31,11 @@ export default function DigiBill() {
 
   return (
     <div>
+        <button>{'<'}back </button>
         {/* <button id='back-btn'>Back</button> */}
             <div id='tabel'>
 
+                    
                 <Box sx={{ width: '100%', typography: 'body1' }}>
                     <TabContext value={value}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

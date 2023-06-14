@@ -42,30 +42,35 @@ const dataCard = [
     alt: "DigiBill",
     cardName: "Digi Bill",
     cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    route: "/DigiBill"
   },
   {
     image: SmartPose,
     alt: "SmartPose",
     cardName: "Smart Pose",
     cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    route: "/SmartPose"
   },
   {
     image: SmartMsg,
     alt: "SmartMsg",
     cardName: "Smart Messenger",
     cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    route: "/SmartMsg"
   },
   {
     image: CocaCola,
     alt: "CocaCola",
     cardName: "CocaCola Management",
     cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy  ",
+    route: "/CocaCola"
   },
   {
     image: InApp,
     alt: "InApp",
     cardName: "In App",
     cardDetails: "This impressive paella is a ",
+    route: "/InApp"
   },
   {
     image: EBCM,
@@ -73,18 +78,21 @@ const dataCard = [
     cardName: "EBCM",
     cardDetails:
       "This impressive paella is a  fgfdtgy ytfgyugy ytftgy This impressive paella is a This impressive paella is a ABC SAB",
+      route: "/EBCM"
   },
   {
     image: V_Cart,
     alt: "V_Cart",
     cardName: "V-Card",
     cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    route: "/V_Cart"
   },
   {
     image: SmartCnt,
     alt: "SmartCnt",
     cardName: "Smart Connector",
     cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    route: "/SmartCnt"
   },
 ];
 
@@ -150,10 +158,12 @@ export default function Cards() {
     setData(dataCard.slice(startCard, endCard));
   };
 
+  const cardLocation =()=>{}
+
   const cardData = (item, key) => (
     <Grid key={key} item xs={6} sm={4} md={3} lg={2.4} xl={2.4}>
       <Card sx={{ Width: 345, height: 300, borderRadius: 6 }} elevation={10}>
-        <CardActionArea sx={{ height: 300 }}>
+        <CardActionArea sx={{ height: 300 }}  onClick={() => {navigate(item.route)}}>
           <CardHeader
             sx={{
               flexDirection: "column",
