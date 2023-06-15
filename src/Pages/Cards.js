@@ -158,7 +158,7 @@ export default function Cards() {
     setData(dataCard.slice(startCard, endCard));
   };
 
-  const cardLocation =()=>{}
+
 
   const cardData = (item, key) => (
     <Grid key={key} item xs={6} sm={4} md={3} lg={2.4} xl={2.4}>

@@ -267,7 +267,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    background-color: #db15c106;
+    /* background-color: #db15c106; */
     margin: auto;
     margin-top: 10rem;
 }
