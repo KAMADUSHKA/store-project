@@ -5,7 +5,7 @@ import React from 'react'
 export default function CocaCola() {
   return (
     <div>
-      <div>
+      
      
      <Formik
        initialValues={{ friends: ['aaaa', 'bbbb'] }}
@@ -54,6 +54,6 @@ export default function CocaCola() {
        )}
      />
    </div>
-    </div>
+  
   )
 }
