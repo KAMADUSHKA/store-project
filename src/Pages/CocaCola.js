@@ -1,6 +1,7 @@
 import TextField from '@mui/material/TextField';
 import { Field, FieldArray, Form, Formik } from 'formik'
 import React, { useState } from 'react'
+import LogParth from '../Tabs/LogParth';
 
 export default function CocaCola() {
 
@@ -100,7 +101,9 @@ export default function CocaCola() {
           />
         </Form>
       )}
+
     />
+     <LogParth/>
    </div>
   
   )
