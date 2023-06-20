@@ -25,7 +25,7 @@ const initialData = [
     Service: "John Doe",
     ServiceIp: 30,
     ServerParth: "123-456-7890",
-    Discription: "aaaaaaaaaaaaaaaaaaa",
+    Discription: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   },
   {
     Service: "John Doe",
@@ -106,6 +106,7 @@ export default function DigiBill() {
     setData(newData);
     setEditIndex(-1);
     console.log(values);
+    value(values, e)
   };
 
   const handleAdd = () => {
@@ -115,7 +116,7 @@ export default function DigiBill() {
 
   const handledata = (setFieldValue, name, e) => {
     // setEditUser({ ...editUser, [e.target.name]: e.target.value });
-    setFieldValue(name, e)
+   setFieldValue(name, e)
   };
 
   return (
@@ -129,14 +130,20 @@ export default function DigiBill() {
       >
         {" < "} back{" "}
       </Button>
-      <Grid container marginTop={3} spacing={2}>
+      {/* <Grid container marginTop={3} spacing={2}>
         <Grid item xs={12}>
           <Grid container margin={5}>
-            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-              <Box sx={{ maxwidth: "xs", typography: "body1" }} >
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}> */}
+
+<Grid container  >
+      <Grid item xs={12} align={"center"}>
+
+              <Box sx={{ maxWidth: { xs: 420, sm:500, md: 780, xl:1080 }, typography: 'body1' }}>
                 <TabContext value={value}>
                   <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                     <TabList
+                    variant="scrollable"
+                    scrollButtons="auto"
                       onChange={handleChange1}
                       aria-label="lab API tabs example"
                     >
@@ -211,33 +218,36 @@ export default function DigiBill() {
                                     variant="contained"
                                     color="primary"
                                     onChange={handleChange}
+                                    onLoad={isSubmitting}
                                   >
                                     Save
                                   </Button>
                                 </>
                               ) : (
-                                <>
-                                  <Typography variant="body1">
-                                    Name: {user.Service}
+                                <><Grid align={"left"}>
+                                  <Typography variant="body1" style={{wordWrap: 'break-word'}}>
+                                    Name : {user.Service}
                                   </Typography>
                                   <br />
-                                  <Typography variant="body1">
-                                    Age: {user.ServiceIp}
+                                  <Typography variant="body1" style={{wordWrap: 'break-word'}}>
+                                    Age : {user.ServiceIp}
                                   </Typography>
                                   <br />
-                                  <Typography variant="body1">
-                                    Mobile Number: {user.ServerParth}
+                                  <Typography variant="body1" style={{wordWrap: 'break-word'}}>
+                                    Mobile Number : {user.ServerParth}
                                   </Typography>
                                   <br />
-                                  <Typography variant="body1">
-                                    Mobile Number: {user.Discription}
+                                  <Typography variant="body1" style={{wordWrap: 'break-word'}}>
+                                    Mobile Number : {user.Discription}
                                   </Typography>
+                                  </Grid>
                                   <br />
                                   <Button
                                   type="button"
                                     variant="contained"
                                     color="primary"
                                     onClick={() => handleEdit(index)}
+                                    onLoad={isSubmitting}
                                   >
                                     Edit
                                   </Button>
@@ -283,10 +293,10 @@ export default function DigiBill() {
                   </TabPanel>
                 </TabContext>
               </Box>
-            </Grid>
+             </Grid>
           </Grid>
-        </Grid>
-      </Grid>
+        {/*</Grid>
+      </Grid> */}
       <br />
       <br />
     </Grid>
