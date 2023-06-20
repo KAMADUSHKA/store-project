@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
@@ -7,14 +7,14 @@ const initialData = [
   {
     Location: "John Doe",
     ServerIp: 30,
-    ServerParth: "123-456-7890",
+    UploadFile: "123-456-7890",
     Discription:
       "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   },
   {
     Location: "John Doe",
     ServerIp: 30,
-    ServerParth: "123-456-7890",
+    UploadFile: "123-456-7890",
     Discription: "bbbbbbbbbbb",
   },
 ];
@@ -26,7 +26,7 @@ export default function Scripts() {
   const [editUser, setEditUser] = useState({
     Location: "",
     ServerIp: "",
-    ServerParth: "",
+    UploadFile: "",
     Discription: "",
   });
 
@@ -49,7 +49,24 @@ export default function Scripts() {
     setData(newData);
   };
 
+  const handleUploadClick = () => {
+    fileInputField.current.click();
+  };
+
+  const fileInputField = useRef(null);
+
   
+
+  const handleUpload = (e, setFiledValue) => {
+    const { files: newFiles } = e.target;
+    if (newFiles.length) {
+      setFiledValue("UploadFile", newFiles[0]);
+      setUrl(URL.createObjectURL(newFiles[0]));
+    }
+  };
+  
+
+  const [url, setUrl] = useState(null);
 
   return (
     <>
@@ -67,7 +84,7 @@ export default function Scripts() {
           isValid,
           setFieldValue,
         }) => (
-          <Form>
+          <Form noValidate onSubmit={handleSubmit}>
             {data.map((user, index) => (
               <Paper
                 key={index}
@@ -93,14 +110,27 @@ export default function Scripts() {
                     />
                     <br />
                     <br />
-                    <TextField
-                      name="ServerParth"
-                      label="ServerParth"
-                      value={values.ServerParth}
-                      onChange={handleChange}
+                    <Button
+                      variant="outlined"
+                      onClick={handleUploadClick}
+                      sx={{
+                        paddingLeft: 5,
+                        paddingRight: 5,
+                        paddingTop: 1.5,
+                        paddingBottom: 1.5,
+                      }}
+                    >
+                      Upload File
+                    </Button>
+                    <input
+                      type="file"
+                      ref={fileInputField}
+                      onChange={(e) => handleUpload(e, setFieldValue)}
+                      title=""
+                      value=""
+                      style={{ display: "block", opacity: 0, width: 0 }}
                     />
-                    <br />
-                    <br />
+
                     <TextField
                       name="Discription"
                       label="Discription"
@@ -140,7 +170,7 @@ export default function Scripts() {
                         variant="body1"
                         style={{ wordWrap: "break-word" }}
                       >
-                        Upload File : {user.ServerParth}
+                        Upload File : {user.UploadFile}
                       </Typography>
                       <br />
                       <Typography

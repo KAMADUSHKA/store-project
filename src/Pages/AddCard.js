@@ -127,7 +127,6 @@ export default function AddCard() {
                           <Divider />
                           <CardActions>
                             <Button
-                              fullWidth
                               variant="text"
                               onClick={handleUploadClick}
                             >

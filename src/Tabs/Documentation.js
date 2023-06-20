@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Grid, Paper, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
@@ -49,6 +49,25 @@ export default function Documentation() {
     setData(newData);
   };
 
+  const handleUploadClick = () => {
+    fileInputField.current.click();
+  };
+
+  const fileInputField = useRef(null);
+
+  
+
+  const handleUpload = (e, setFiledValue) => {
+    const { files: newFiles } = e.target;
+    if (newFiles.length) {
+      setFiledValue("FileUpload", newFiles[0]);
+      setUrl(URL.createObjectURL(newFiles[0]));
+    }
+  };
+  
+
+  const [url, setUrl] = useState(null);
+
   return (
     <>
       <Formik
@@ -91,14 +110,28 @@ export default function Documentation() {
                     />
                     <br />
                     <br />
-                    <TextField
-                      name="FileUpload"
-                      label="File Upload"
-                      value={values.FileUpload}
-                      onChange={handleChange}
+                    <Button
+                      variant="outlined"
+                      onClick={handleUploadClick}
+                      sx={{
+                        paddingLeft: 5,
+                        paddingRight: 5,
+                        paddingTop: 1.5,
+                        paddingBottom: 1.5,
+                      }}
+                    >
+                      Upload File
+                    </Button>
+                    <input
+                      type="file"
+                      ref={fileInputField}
+                      onChange={(e) => handleUpload(e, setFieldValue)}
+                      title=""
+                      value=""
+                      style={{ display: "block", opacity: 0, width: 0 }}
                     />
-                    <br />
-                    <br />
+
+                    
                     <TextField
                       name="Discription"
                       label="Discription"
