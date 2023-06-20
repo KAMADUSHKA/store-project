@@ -1,8 +1,11 @@
 import TextField from '@mui/material/TextField';
-import { FieldArray, Form, Formik } from 'formik'
-import React from 'react'
+import { Field, FieldArray, Form, Formik } from 'formik'
+import React, { useState } from 'react'
 
 export default function CocaCola() {
+
+  const [isAddButtonClicked, setIsAddButtonClicked] = useState(false);
+
   return (
     <div>
       
@@ -52,7 +55,52 @@ export default function CocaCola() {
            />
          </Form>
        )}
+      
      />
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+<Formik
+      initialValues={{ friends: ['Service :', 'Server IP :', 'Server Path :', 'Description :'] }}
+      onSubmit={values =>
+        setTimeout(() => {
+          console.log(JSON.stringify(values, null, 2));
+        }, 500)
+      }
+      render={({ values }) => (
+        <Form>
+          <FieldArray
+            name="friends"
+            render={arrayHelpers => (
+              <div>
+                {values.friends && values.friends.length > 0 ? (
+                  values.friends.map((friend, index) => (
+                    <div key={index}  disabled={isAddButtonClicked}>
+                      <Field name={`friends.${index}`} placeholder={friend} variant="standard" component="input" />
+                    </div>
+                  ))
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      arrayHelpers.push('');
+                      setIsAddButtonClicked(true);
+                    }}
+                    // disabled={isAddButtonClicked}
+                  >
+                    {/* show this when user has removed all friends from the list */}
+                    Add a friend
+                  </button>
+                )}
+                <div>
+                  <button type="submit">Submit</button>
+                </div>
+              </div>
+            )}
+          />
+        </Form>
+      )}
+    />
    </div>
   
   )
