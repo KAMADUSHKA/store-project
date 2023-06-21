@@ -55,8 +55,6 @@ export default function Scripts() {
 
   const fileInputField = useRef(null);
 
-  
-
   const handleUpload = (e, setFiledValue) => {
     const { files: newFiles } = e.target;
     if (newFiles.length) {
@@ -64,7 +62,6 @@ export default function Scripts() {
       setUrl(URL.createObjectURL(newFiles[0]));
     }
   };
-  
 
   const [url, setUrl] = useState(null);
 
@@ -90,6 +87,7 @@ export default function Scripts() {
                 key={index}
                 elevation={5}
                 style={{ padding: "16px", marginBottom: "16px" }}
+                sx={{ borderRadius: 6 }}
               >
                 {editIndex === index ? (
                   <>
@@ -145,6 +143,7 @@ export default function Scripts() {
                       color="primary"
                       onChange={handleChange}
                       onLoad={isSubmitting}
+                      sx={{ borderRadius: 3 }}
                     >
                       Save
                     </Button>
@@ -187,6 +186,7 @@ export default function Scripts() {
                       color="primary"
                       onClick={() => handleEdit(index)}
                       onLoad={isSubmitting}
+                      sx={{ borderRadius: 3 }}
                     >
                       Edit
                     </Button>
@@ -194,7 +194,11 @@ export default function Scripts() {
                 )}
               </Paper>
             ))}
-            <Button variant="contained" onClick={handleAdd}>
+            <Button
+              variant="contained"
+              onClick={handleAdd}
+              sx={{ borderRadius: 3 }}
+            >
               Add User
             </Button>
           </Form>

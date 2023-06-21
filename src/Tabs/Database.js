@@ -5,28 +5,22 @@ import TextField from "@mui/material/TextField";
 
 const initialData = [
   {
-    Service: "John Doe",
-    ServiceIp: 30,
-    ServerParth: "123-456-7890",
+    DBName: "John Doe",
+    DBIP_ServerIp: 30,
+    BackupLocation: "123-456-7890",
     Discription:
       "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   },
-  {
-    Service: "John Doe",
-    ServiceIp: 30,
-    ServerParth: "123-456-7890",
-    Discription: "bbbbbbbbbbb",
-  },
 ];
 
-export default function LogParth() {
+export default function Database() {
   const [data, setData] = useState(initialData);
   const [value, setValue] = React.useState("1");
   const [editIndex, setEditIndex] = useState(-1);
   const [editUser, setEditUser] = useState({
-    Service: "",
-    ServiceIp: "",
-    ServerParth: "",
+    DBName: "",
+    DBIP_ServerIp: "",
+    BackupLocation: "",
     Discription: "",
   });
 
@@ -42,11 +36,6 @@ export default function LogParth() {
     setData(newData);
     setEditIndex(-1);
     console.log(values);
-  };
-
-  const handleAdd = () => {
-    const newData = [...data, initialData];
-    setData(newData);
   };
 
   return (
@@ -76,26 +65,26 @@ export default function LogParth() {
                 {editIndex === index ? (
                   <>
                     <TextField
-                      name="Service"
-                      label="Service"
-                      value={values.Service}
+                      name="DBName"
+                      label="DB Name"
+                      value={values.DBName}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
                     <br />
                     <br />
                     <TextField
-                      name="ServiceIp"
-                      label="Service Ip"
-                      value={values.ServiceIp}
+                      name="DBIP_ServerIp"
+                      label="DB IP /Server Ip"
+                      value={values.DBIP_ServerIp}
                       onChange={handleChange}
                     />
                     <br />
                     <br />
                     <TextField
-                      name="ServerParth"
-                      label="Server Parth"
-                      value={values.ServerParth}
+                      name="BackupLocation"
+                      label="Backup Location"
+                      value={values.BackupLocation}
                       onChange={handleChange}
                     />
                     <br />
@@ -126,21 +115,21 @@ export default function LogParth() {
                         variant="body1"
                         style={{ wordWrap: "break-word" }}
                       >
-                        Service : {user.Service}
+                        DB Name : {user.DBName}
                       </Typography>
                       <br />
                       <Typography
                         variant="body1"
                         style={{ wordWrap: "break-word" }}
                       >
-                        Server Ip : {user.ServiceIp}
+                        DB IP /Server Ip : {user.DBIP_ServerIp}
                       </Typography>
                       <br />
                       <Typography
                         variant="body1"
                         style={{ wordWrap: "break-word" }}
                       >
-                        Server Parth : {user.ServerParth}
+                        Backup Location : {user.BackupLocation}
                       </Typography>
                       <br />
                       <Typography
@@ -165,13 +154,6 @@ export default function LogParth() {
                 )}
               </Paper>
             ))}
-            <Button
-              variant="contained"
-              onClick={handleAdd}
-              sx={{ borderRadius: 3 }}
-            >
-              Add User
-            </Button>
           </Form>
         )}
       </Formik>

@@ -8,8 +8,7 @@ const initialData = [
     ServiceName: "John Doe",
     IssueDiscription: 30,
     ResolvingProcedure: "123-456-7890",
-    FileUpload:
-      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    FileUpload: "aaaaaaaaaaaaaaaaa",
   },
   {
     ServiceName: "John Doe",
@@ -55,8 +54,6 @@ export default function Troubleshooting() {
 
   const fileInputField = useRef(null);
 
-  
-
   const handleUpload = (e, setFiledValue) => {
     const { files: newFiles } = e.target;
     if (newFiles.length) {
@@ -64,7 +61,6 @@ export default function Troubleshooting() {
       setUrl(URL.createObjectURL(newFiles[0]));
     }
   };
-  
 
   const [url, setUrl] = useState(null);
 
@@ -90,6 +86,7 @@ export default function Troubleshooting() {
                 key={index}
                 elevation={5}
                 style={{ padding: "16px", marginBottom: "16px" }}
+                sx={{ borderRadius: 6 }}
               >
                 {editIndex === index ? (
                   <>
@@ -144,6 +141,7 @@ export default function Troubleshooting() {
                       color="primary"
                       onChange={handleChange}
                       onLoad={isSubmitting}
+                      sx={{ borderRadius: 3 }}
                     >
                       Save
                     </Button>
@@ -186,6 +184,7 @@ export default function Troubleshooting() {
                       color="primary"
                       onClick={() => handleEdit(index)}
                       onLoad={isSubmitting}
+                      sx={{ borderRadius: 3 }}
                     >
                       Edit
                     </Button>
@@ -193,7 +192,11 @@ export default function Troubleshooting() {
                 )}
               </Paper>
             ))}
-            <Button variant="contained" onClick={handleAdd}>
+            <Button
+              variant="contained"
+              onClick={handleAdd}
+              sx={{ borderRadius: 3 }}
+            >
               Add User
             </Button>
           </Form>

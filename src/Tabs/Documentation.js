@@ -1,6 +1,16 @@
 import { Formik, Form } from "formik";
 import React, { useRef, useState } from "react";
-import { Button, Grid, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Paper,
+  Select,
+  Typography,
+} from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 const initialData = [
@@ -21,6 +31,7 @@ const initialData = [
 
 export default function Documentation() {
   const [data, setData] = useState(initialData);
+  const [type, setType] = React.useState("");
   const [value, setValue] = React.useState("1");
   const [editIndex, setEditIndex] = useState(-1);
   const [editUser, setEditUser] = useState({
@@ -35,7 +46,8 @@ export default function Documentation() {
     setEditUser(data[index]);
   };
 
-  const handleChange = (e, values) => {
+  const handleChange = (e, values, event) => {
+    setType(event.target.value);
     setEditUser({ ...editUser, [e.target.name]: e.target.value });
     const newData = [...data];
     newData[editIndex] = editUser;
@@ -55,8 +67,6 @@ export default function Documentation() {
 
   const fileInputField = useRef(null);
 
-  
-
   const handleUpload = (e, setFiledValue) => {
     const { files: newFiles } = e.target;
     if (newFiles.length) {
@@ -64,9 +74,12 @@ export default function Documentation() {
       setUrl(URL.createObjectURL(newFiles[0]));
     }
   };
-  
 
   const [url, setUrl] = useState(null);
+
+  // const handleChange = (event) => {
+  //   setAge(event.target.value);
+  // };
 
   return (
     <>
@@ -90,6 +103,7 @@ export default function Documentation() {
                 key={index}
                 elevation={5}
                 style={{ padding: "16px", marginBottom: "16px" }}
+                sx={{ borderRadius: 6 }}
               >
                 {editIndex === index ? (
                   <>
@@ -102,12 +116,24 @@ export default function Documentation() {
                     />
                     <br />
                     <br />
-                    <TextField
-                      name="DocumentType"
-                      label="Document Type"
-                      value={values.DocumentType}
-                      onChange={handleChange}
-                    />
+                    <Box sx={{ minWidth: 120 }}>
+                      <FormControl sx={{ width: 220 }}>
+                        <InputLabel id="demo-simple-select-label">
+                          Document Type
+                        </InputLabel>
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          name="DocumentType"
+                          value={values.DocumentType}
+                          label="Age"
+                          onChange={handleChange}
+                        >
+                          <MenuItem value={0}>API</MenuItem>
+                          <MenuItem value={1}>Manual</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </Box>
                     <br />
                     <br />
                     <Button
@@ -131,7 +157,6 @@ export default function Documentation() {
                       style={{ display: "block", opacity: 0, width: 0 }}
                     />
 
-                    
                     <TextField
                       name="Discription"
                       label="Discription"
@@ -146,6 +171,7 @@ export default function Documentation() {
                       color="primary"
                       onChange={handleChange}
                       onLoad={isSubmitting}
+                      sx={{ borderRadius: 3 }}
                     >
                       Save
                     </Button>
@@ -188,6 +214,7 @@ export default function Documentation() {
                       color="primary"
                       onClick={() => handleEdit(index)}
                       onLoad={isSubmitting}
+                      sx={{ borderRadius: 3 }}
                     >
                       Edit
                     </Button>
@@ -195,7 +222,11 @@ export default function Documentation() {
                 )}
               </Paper>
             ))}
-            <Button variant="contained" onClick={handleAdd}>
+            <Button
+              variant="contained"
+              onClick={handleAdd}
+              sx={{ borderRadius: 3 }}
+            >
               Add User
             </Button>
           </Form>

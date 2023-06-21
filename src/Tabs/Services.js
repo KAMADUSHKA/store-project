@@ -5,29 +5,29 @@ import TextField from "@mui/material/TextField";
 
 const initialData = [
   {
-    Service: "John Doe",
+    ServiceName: "John Doe",
     ServiceIp: 30,
     ServerParth: "123-456-7890",
-    Discription:
+    RelatedCommands:
       "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   },
   {
-    Service: "John Doe",
+    ServiceName: "John Doe",
     ServiceIp: 30,
     ServerParth: "123-456-7890",
-    Discription: "bbbbbbbbbbb",
+    RelatedCommands: "bbbbbbbbbbb",
   },
 ];
 
-export default function LogParth() {
+export default function Services() {
   const [data, setData] = useState(initialData);
   const [value, setValue] = React.useState("1");
   const [editIndex, setEditIndex] = useState(-1);
   const [editUser, setEditUser] = useState({
-    Service: "",
+    ServiceName: "",
     ServiceIp: "",
     ServerParth: "",
-    Discription: "",
+    RelatedCommands: "",
   });
 
   const handleEdit = (index) => {
@@ -76,9 +76,9 @@ export default function LogParth() {
                 {editIndex === index ? (
                   <>
                     <TextField
-                      name="Service"
-                      label="Service"
-                      value={values.Service}
+                      name="ServiceName"
+                      label="Service Name"
+                      value={values.ServiceName}
                       onChange={handleChange}
                       onBlur={handleBlur}
                     />
@@ -101,9 +101,9 @@ export default function LogParth() {
                     <br />
                     <br />
                     <TextField
-                      name="Discription"
-                      label="Discription"
-                      value={values.Discription}
+                      name="RelatedCommands"
+                      label="Related Commands"
+                      value={values.RelatedCommands}
                       onChange={handleChange}
                     />
                     <br />
@@ -126,7 +126,7 @@ export default function LogParth() {
                         variant="body1"
                         style={{ wordWrap: "break-word" }}
                       >
-                        Service : {user.Service}
+                        Service Name : {user.ServiceName}
                       </Typography>
                       <br />
                       <Typography
@@ -147,7 +147,7 @@ export default function LogParth() {
                         variant="body1"
                         style={{ wordWrap: "break-word" }}
                       >
-                        Discription : {user.Discription}
+                        Related Commands : {user.RelatedCommands}
                       </Typography>
                     </Grid>
                     <br />
