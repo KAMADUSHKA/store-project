@@ -23,6 +23,8 @@ import LogParth from "../Tabs/LogParth";
 import Scripts from "../Tabs/Scripts";
 import Documentation from "../Tabs/Documentation";
 import Troubleshooting from "../Tabs/TrobleShooting";
+import Services from "../Tabs/Services";
+import Database from "../Tabs/Database";
 
 export default function DigiBill() {
   const Navigate = useNavigate();
@@ -47,7 +49,7 @@ export default function DigiBill() {
     <Grid>
       <Button
         variant="contained"
-        sx={{ margin: 4 }}
+        sx={{ margin: 4,  borderRadius: 3  }}
         onClick={() => {
           Navigate("/Cards");
         }}
@@ -88,17 +90,16 @@ export default function DigiBill() {
                 <LogParth />
               </TabPanel>
 
-              <TabPanel value="2">zzzzzzzzzzzzzzzzz</TabPanel>
+              <TabPanel value="2">
+                <Services/>
+              </TabPanel>
 
               <TabPanel value="3">
                 <Scripts/>
               </TabPanel>
 
               <TabPanel value="4">
-                <span>aaaaaaaaaaaaaaaaaaaaaaaa</span>
-
-                <br />
-                <br />
+                <Database/>
               </TabPanel>
 
               <TabPanel value="5">

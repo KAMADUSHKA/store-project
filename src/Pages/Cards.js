@@ -163,7 +163,7 @@ export default function Cards() {
   const cardData = (item, key) => (
     <Grid key={key} item xs={6} sm={4} md={3} lg={2.4} xl={2.4}>
       <Card sx={{ Width: 345, height: 300, borderRadius: 6 }} elevation={10}>
-        <CardActionArea sx={{ height: 300 }}  onClick={() => {navigate(item.route)}}>
+        <CardActionArea sx={{ height: 300 }}  onClick={() => {navigate(`/DigiBill/${item.id}`)}}>
           <CardHeader
             sx={{
               flexDirection: "column",
