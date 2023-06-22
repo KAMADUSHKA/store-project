@@ -38,6 +38,7 @@ import { useNavigate } from "react-router-dom";
 
 const dataCard = [
   {
+    id:1,
     image: DigiBill,
     alt: "DigiBill",
     cardName: "Digi Bill",
@@ -45,6 +46,7 @@ const dataCard = [
     route: "/DigiBill"
   },
   {
+    id:2,
     image: SmartPose,
     alt: "SmartPose",
     cardName: "Smart Pose",
@@ -52,6 +54,7 @@ const dataCard = [
     route: "/SmartPose"
   },
   {
+    id:3,
     image: SmartMsg,
     alt: "SmartMsg",
     cardName: "Smart Messenger",
@@ -59,6 +62,7 @@ const dataCard = [
     route: "/SmartMsg"
   },
   {
+    id:4,
     image: CocaCola,
     alt: "CocaCola",
     cardName: "CocaCola Management",
@@ -66,6 +70,7 @@ const dataCard = [
     route: "/CocaCola"
   },
   {
+    id:5,
     image: InApp,
     alt: "InApp",
     cardName: "In App",
@@ -73,6 +78,7 @@ const dataCard = [
     route: "/InApp"
   },
   {
+    id:6,
     image: EBCM,
     alt: "EBCM",
     cardName: "EBCM",
@@ -81,6 +87,7 @@ const dataCard = [
       route: "/EBCM"
   },
   {
+    id:7,
     image: V_Cart,
     alt: "V_Cart",
     cardName: "V-Card",
@@ -88,6 +95,7 @@ const dataCard = [
     route: "/V_Cart"
   },
   {
+    id:8,
     image: SmartCnt,
     alt: "SmartCnt",
     cardName: "Smart Connector",
