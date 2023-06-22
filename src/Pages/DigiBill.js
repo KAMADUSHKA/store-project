@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,lazy, Suspense } from "react";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
@@ -19,12 +19,18 @@ import {
   autocompleteClasses,
 } from "@mui/material";
 import { FieldArray, Form, Formik } from "formik";
-import LogParth from "../Tabs/LogParth";
-import Scripts from "../Tabs/Scripts";
-import Documentation from "../Tabs/Documentation";
-import Troubleshooting from "../Tabs/TrobleShooting";
-import Services from "../Tabs/Services";
-import Database from "../Tabs/Database";
+// import LogParth from "../Tabs/LogParth";
+const LogParth = lazy(() => import("../Tabs/LogParth"));
+// import Scripts from "../Tabs/Scripts";
+const Scripts = lazy(() => import("../Tabs/Scripts"))
+// import Documentation from "../Tabs/Documentation";
+const Documentation = lazy(() => import("../Tabs/Documentation"))
+// import Troubleshooting from "../Tabs/TrobleShooting";
+const Troubleshooting = lazy(() => import("../Tabs/TrobleShooting"))
+// import Services from "../Tabs/Services";
+const Services = lazy(() => import("../Tabs/Services"))
+// import Database from "../Tabs/Database";
+const Database = lazy(() => import("../Tabs/Database"))
 
 export default function DigiBill() {
   const Navigate = useNavigate();
@@ -87,27 +93,39 @@ export default function DigiBill() {
               </Box>
 
               <TabPanel value="1">
+                <Suspense fallback={<div>loading...</div>}>
                 <LogParth />
+                </Suspense>
               </TabPanel>
 
               <TabPanel value="2">
+              <Suspense fallback={<div>loading...</div>}>
                 <Services/>
+                </Suspense>
               </TabPanel>
 
               <TabPanel value="3">
+              <Suspense fallback={<div>loading...</div>}>
                 <Scripts/>
+                </Suspense>
               </TabPanel>
 
               <TabPanel value="4">
+              <Suspense fallback={<div>loading...</div>}>
                 <Database/>
+                </Suspense>
               </TabPanel>
 
               <TabPanel value="5">
+              <Suspense fallback={<div>loading...</div>}>
                 <Documentation/>
+                </Suspense>
               </TabPanel>
 
               <TabPanel value="6">
+              <Suspense fallback={<div>loading...</div>}>
                 <Troubleshooting/>
+                </Suspense>
               </TabPanel>
             </TabContext>
           </Box>
