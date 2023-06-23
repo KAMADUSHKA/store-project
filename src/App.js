@@ -1,17 +1,20 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from "./Pages/Login";
-import Servises from "./Pages/Servises";
-import DigiBill from './Pages/DigiBill';
-import SmartPose from "./Pages/SmartPose";
-import SmartMsg from "./Pages/SmartMsg";
-import CocaCola from "./Pages/CocaCola";
-import InApp from "./Pages/InApp";
-import EBCM from "./Pages/EBCM";
-import SmartCnt from "./Pages/SmartCnt";
-import VCard from './Pages/VCard';
-import Cards from './Pages/Cards'
-import AddCard from "./Pages/AddCard";
+import Routes from "./RoutPage/Routes"
+import { BrowserRouter} from "react-router-dom";
+
+// import Login from "./Pages/Login";
+// import Servises from "./Pages/Servises";
+// import DigiBill from './Pages/DigiBill';
+// import SmartPose from "./Pages/SmartPose";
+// import SmartMsg from "./Pages/SmartMsg";
+// import CocaCola from "./Pages/CocaCola";
+// import InApp from "./Pages/InApp";
+// import EBCM from "./Pages/EBCM";
+// import SmartCnt from "./Pages/SmartCnt";
+// import VCard from './Pages/VCard';
+// import Cards from './Pages/Cards'
+// import AddCard from "./Pages/AddCard";
+// import UserAuthorizedRoutes from "./RoutPage/UserAuthorizedRoutes";
 
 
 
@@ -20,9 +23,15 @@ function App() {
     <div >
       
      <BrowserRouter>
-        
-        <Routes>
-            <Route path = "/"
+              <Routes/>
+     </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;
+
+            {/* <Route path = "/"
                    element = { <Login/> } />
             <Route path = "/Servises"
                    element = { <Servises/> } />
@@ -45,11 +54,5 @@ function App() {
              <Route path="/Cards"
                    element = { <Cards/> } />  
              <Route path ='/AddCard'
-                   element={ <AddCard/> } />      
-        </Routes>
-     </BrowserRouter>
-    </div>
-  );
-}
-
-export default App;
+                   element={ <AddCard/> } />       */}
+  

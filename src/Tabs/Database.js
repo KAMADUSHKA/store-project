@@ -102,7 +102,7 @@ export default function Database() {
                       variant="contained"
                       color="primary"
                       onChange={handleChange}
-                      onLoad={isSubmitting}
+                      // onLoad={isSubmitting}
                       sx={{ borderRadius: 3 }}
                     >
                       Save
