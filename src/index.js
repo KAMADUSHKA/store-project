@@ -3,14 +3,30 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { applyMiddleware, compose, createStore } from 'redux';
+import { useReducer } from 'react';
+import { Provider } from 'react-redux';
+import { Store } from '@mui/icons-material';
+import thunk from 'redux-thunk';
 
+// const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+
+
  
-  <React.StrictMode>
+
+  
+ 
+  // <React.StrictMode>
+    <BrowserRouter>
+    {/* <Provider store={Store}> */}
     <App />
-  </React.StrictMode>
+    {/* </Provider> */}
+    </BrowserRouter>
+  // </React.StrictMode>
   
 );
 

@@ -22,9 +22,9 @@ function App() {
   return (
     <div >
       
-     <BrowserRouter>
+     
               <Routes/>
-     </BrowserRouter>
+     
     </div>
   );
 }
