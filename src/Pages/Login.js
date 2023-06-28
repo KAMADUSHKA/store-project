@@ -19,8 +19,14 @@ import { useTheme } from "@mui/material/styles";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+
+  // const dispatch =useDispatch()
+  const navigate = useNavigate();
+
+
   const theme = useTheme();
   const matchDownSM = useMediaQuery(theme.breakpoints.down("md"));
   const paperStyle = {
@@ -43,7 +49,7 @@ export default function Login() {
   const handleLogin = (values, setSubmitting) => {
     setSubmitting(false);
     console.log("User Data:", values);
-    window.location.href = "/Cards";
+    navigate("/Cards");
   };
 
   const validationSchema = Yup.object().shape({
@@ -63,7 +69,9 @@ export default function Login() {
       <Formik
         initialValues={{ username: "", password: "" }}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => { (handleLogin(values, setSubmitting))}}
+        onSubmit={(values, { setSubmitting }) => {
+          setSubmitting(false);
+          handleLogin(values, setSubmitting)}}
       >
         {({
           errors,

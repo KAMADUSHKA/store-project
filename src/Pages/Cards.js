@@ -171,7 +171,8 @@ export default function Cards() {
   const cardData = (item, key) => (
     <Grid key={key} item xs={6} sm={4} md={3} lg={2.4} xl={2.4}>
       <Card sx={{ Width: 345, height: 300, borderRadius: 6 }} elevation={10}>
-        <CardActionArea sx={{ height: 300 }}  onClick={() => {navigate(`/DigiBill/${item.id}`)}}>
+      <CardActionArea>
+        <Box sx={{ height: 300 }}  onClick={() => {navigate(`/DigiBill/${item.id}`)}}>
           <CardHeader
             sx={{
               flexDirection: "column",
@@ -194,6 +195,7 @@ export default function Cards() {
             }
             subheader="06,14,2023"
           />
+          
           <Tooltip title={item.cardDetails}>
             <CardContent sx={{ height: 40 }}>
               <Typography variant="body2" color="text.secondary">
@@ -202,14 +204,15 @@ export default function Cards() {
               </Typography>
             </CardContent>
           </Tooltip>
-          <CardActions sx={{}}>         
+          {/* <CardActions>         
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
             </IconButton>
             <IconButton aria-label="delete">
               <DeleteIcon />
             </IconButton>
-          </CardActions>
+          </CardActions> */}
+        </Box>
         </CardActionArea>
       </Card>
     </Grid>
