@@ -1,3 +1,8 @@
-export const handleLogin = ( formData: any, setSubmitting: any, navigate: any) =>async (dispatch:any) {
-    const {data} = await handleLogin(formData)
+
+
+export const handleLogin = ( formData, setSubmitting, navigate) =>async (dispatch) {
+    
+    try{
+        const {data} = await handleLogin(formData)
+    }
 }

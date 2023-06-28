@@ -9,8 +9,9 @@ import { useReducer } from 'react';
 import { Provider } from 'react-redux';
 import { Store } from '@mui/icons-material';
 import thunk from 'redux-thunk';
+import reducers from './reduxPagers.js/reducers';
 
-// const store = createStore(reducers, compose(applyMiddleware(thunk)));
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,9 +23,9 @@ root.render(
  
   // <React.StrictMode>
     <BrowserRouter>
-    {/* <Provider store={Store}> */}
+    <Provider store={store}>
     <App />
-    {/* </Provider> */}
+    </Provider>
     </BrowserRouter>
   // </React.StrictMode>
   
