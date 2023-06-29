@@ -20,10 +20,11 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { handleLogin } from "./handleLogin";
 
 export default function Login() {
 
-  // const dispatch =useDispatch()
+  const dispatch =useDispatch()
   const navigate = useNavigate();
 
 
@@ -46,11 +47,11 @@ export default function Login() {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = (values, setSubmitting) => {
-    setSubmitting(false);
-    console.log("User Data:", values);
-    navigate("/Cards");
-  };
+  // const handleLogin = (values, setSubmitting) => {
+  //   setSubmitting(false);
+  //   console.log("User Data:", values);
+  //   navigate("/Cards");
+  // };
 
   const validationSchema = Yup.object().shape({
     username: Yup.string().max(255).required("Username is required"),
@@ -71,7 +72,8 @@ export default function Login() {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(false);
-          handleLogin(values, setSubmitting)}}
+          dispatch(handleLogin(values, setSubmitting, navigate))
+        }}
       >
         {({
           errors,
