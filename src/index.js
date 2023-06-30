@@ -9,7 +9,7 @@ import { useReducer } from 'react';
 import { Provider } from 'react-redux';
 import { Store } from '@mui/icons-material';
 import thunk from 'redux-thunk';
-import reducers from './reduxPagers.js/reducers';
+import reducers from './reduxPagers/reducers';
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 

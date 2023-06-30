@@ -1,4 +1,4 @@
-import { decryption, encryption } from "../componant/comonFuntions";
+import { decryption, encryption } from "../componant/comonFuntions.tsx";
 import { AUTH, LOGOUT } from "../componant/const";
 
  const authReducer = ( state = { authData: null }, action) => {
