@@ -1,5 +1,7 @@
 import axios from "axios";
-import { decryption } from "./comonFuntions";
+import { decryption } from "./comonFuntions.tsx";
+import { openErrorDialog } from "./openErrorDialog.tsx";
+
 
 
 const interceptor = axios.create({
@@ -31,7 +33,13 @@ interceptor.interceptors.response.use(
     },
     (error) => {
         if (error.response.status === 401) {
-            
+           openErrorDialog(error.response.data.status,error.response.data.comment);
+           localStorage.removeItem("profile");
+           window.location.replace("/");
+        }else{
+            openErrorDialog(error.response.data.status, error.response.data.comment);
         }
     }
-)
+);
+
+export default interceptor;

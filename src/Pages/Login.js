@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Style/Style.css";
 import AdeonaLogo from "../componant/AdeonaLogo.png";
-//import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 import {
   Grid,
@@ -47,11 +47,11 @@ export default function Login() {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = (values, setSubmitting) => {
-    setSubmitting(false);
-    console.log("User Data:", values);
-    navigate("/Cards");
-  };
+  // const handleLogin = (values, setSubmitting) => {
+  //   setSubmitting(false);
+  //   console.log("User Data:", values);
+  //   navigate("/Cards");
+  // };
 
   const validationSchema = Yup.object().shape({
     username: Yup.string().max(255).required("Username is required"),
@@ -72,8 +72,8 @@ export default function Login() {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(false);
-          // dispatch(handleLogin(values, setSubmitting, navigate))
-         handleLogin(values, setSubmitting, navigate)
+          dispatch(handleLogin(values, setSubmitting, navigate))
+        //  handleLogin(values, setSubmitting, navigate)
         }}
       >
         {({
