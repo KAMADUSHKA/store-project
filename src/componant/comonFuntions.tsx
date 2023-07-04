@@ -1,5 +1,4 @@
 import { SECRET_KEY } from "./const";
-import {create} from "zustand";
 
 
 
@@ -18,7 +17,7 @@ export function encryption(cipherText) {
       }
 }
 
-export function decryption (cipherText){
+export function decryption(cipherText){
     if (cipherText){
         let bytes =CryptoJS.AES.decrypt(cipherText,SECRET_KEY);
         return JSON.parse(bytes.toString(CryptoJS.enc.utf8))

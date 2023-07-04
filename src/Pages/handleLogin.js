@@ -2,7 +2,7 @@
 import * as api from "../componant/SignIn"
 import { AUTH } from "../componant/const";
 
-export const handleLogin = ( values, setSubmitting, navigate) =>async (dispatch) => {
+export const handleLogin = ( values, setSubmitting, navigate, setLoading) =>async (dispatch) => {
     
     try{
         // const {data} = await handleLogin(values);
@@ -10,10 +10,12 @@ export const handleLogin = ( values, setSubmitting, navigate) =>async (dispatch)
 
         dispatch({type:AUTH, data });
         setSubmitting(false);
+        setLoading(false)
         console.log("User Data:", values);
         navigate("/Cards");
 
     } catch{
         setSubmitting(false)
+        setLoading(false)
     }
 };
