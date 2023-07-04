@@ -26,6 +26,7 @@ code {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
+  
 }
 
 .loader {
@@ -33,6 +34,7 @@ code {
   position: fixed;
   top: 50%;
   left: 50%;
+  border-radius: 10%;
   transform: translate(-50%, -50%);
   z-index: 4;
   font-size: 11px;
@@ -41,6 +43,7 @@ code {
   width: 1em;
   height: 4em;
   animation-delay: -0.16s;
+ 
 }
 .loader:before,
 .loader:after {
@@ -51,6 +54,7 @@ code {
   background: #fff;
   width: 1em;
   height: 4em;
+  border-radius: 10%;
   animation: escaleY 1s infinite ease-in-out;
 }
 .loader:before {
@@ -64,9 +68,14 @@ code {
   100% {
     box-shadow: 0 0;
     height: 4em;
+    background-color: rgb(223, 161, 216);
+    
   }
   40% {
     box-shadow: 0 -2em;
     height: 5em;
+    background-color: rgb(108, 138, 230);
   }
 }
+
+
