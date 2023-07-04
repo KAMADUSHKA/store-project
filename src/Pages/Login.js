@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../Style/Style.css";
 import AdeonaLogo from "../componant/AdeonaLogo.png";
-import jwt from "jsonwebtoken";
 
 import {
   Grid,
@@ -21,12 +20,15 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handleLogin } from "./handleLogin";
+import Loade from "../componant/Loader";
+
 
 export default function Login() {
 
   const dispatch =useDispatch()
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
+// const setLoading = (false)
 
   const theme = useTheme();
   const matchDownSM = useMediaQuery(theme.breakpoints.down("md"));
@@ -72,7 +74,8 @@ export default function Login() {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(false);
-          dispatch(handleLogin(values, setSubmitting, navigate))
+          setLoading(true)
+          dispatch(handleLogin(values, setSubmitting, navigate, setLoading))
         //  handleLogin(values, setSubmitting, navigate)
         }}
       >
@@ -169,10 +172,12 @@ export default function Login() {
                     >
                       LOGIN
                     </Button>
+                    
                   </Grid>
                 </Paper>
               </Grid>
             </Grid>
+            {loading && <Loade/>}
           </form>
         )}
       </Formik>
