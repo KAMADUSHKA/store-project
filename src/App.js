@@ -1,6 +1,6 @@
 import React from "react";
 import Routes from "./RoutPage/Routes"
-import { BrowserRouter} from "react-router-dom";
+import ErrorDialog from "./componant/openErrorDialog.tsx";
 
 // import Login from "./Pages/Login";
 // import Servises from "./Pages/Servises";
@@ -24,6 +24,7 @@ function App() {
       
      
               <Routes/>
+              <ErrorDialog/>
      
     </div>
   );

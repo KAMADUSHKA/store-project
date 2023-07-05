@@ -10,7 +10,7 @@ import {
   IconButton,
   Stack,
   Typography,
-  useMediaQuery
+  useMediaQuery,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { ModifiedTextField } from "../Theam/Theam";
@@ -22,13 +22,11 @@ import { useNavigate } from "react-router-dom";
 import { handleLogin } from "./handleLogin";
 import Loade from "../componant/Loader";
 
-
 export default function Login() {
-
-  const dispatch =useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-// const setLoading = (false)
+  // const setLoading = (false)
 
   const theme = useTheme();
   const matchDownSM = useMediaQuery(theme.breakpoints.down("md"));
@@ -63,7 +61,6 @@ export default function Login() {
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
         "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
-      
       ),
   });
 
@@ -74,9 +71,9 @@ export default function Login() {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           setSubmitting(false);
-          setLoading(true)
-          dispatch(handleLogin(values, setSubmitting, navigate, setLoading))
-        //  handleLogin(values, setSubmitting, navigate)
+          setLoading(true);
+          dispatch(handleLogin(values, setSubmitting, navigate, setLoading));
+          //  handleLogin(values, setSubmitting, navigate)
         }}
       >
         {({
@@ -172,12 +169,11 @@ export default function Login() {
                     >
                       LOGIN
                     </Button>
-                    
                   </Grid>
                 </Paper>
               </Grid>
             </Grid>
-            {loading && <Loade/>}
+            {loading && <Loade />}
           </form>
         )}
       </Formik>
