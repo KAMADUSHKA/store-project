@@ -1,6 +1,5 @@
 import React, { lazy } from "react";
-import Loadable from "./Loadable";
-import AuthorHeader from "./AuthorHeader";
+import Loadable from "./Loadable";import AuthorHeader from "./AuthorHeader";
 
 
 const Login = Loadable(lazy(()=>import("../Pages/Login"))) ;
@@ -15,11 +14,12 @@ const SmartCnt = Loadable(lazy(()=>import( "../Pages/SmartCnt")));
 const Cards = Loadable(lazy(()=>import( "../Pages/Cards")));
 const AddCard = Loadable(lazy(()=>import("../Pages/AddCard")));
 
-const UserAuthorizedRoutes = [
-  {
-    path: "/",
-    element: <AuthorHeader/>,
-    children:[
+const sample = [
+  
+    {
+        path: "/",
+        element: <Login />,
+      },
       {
         path: "/DigiBill",
         element: <DigiBill />,
@@ -60,9 +60,7 @@ const UserAuthorizedRoutes = [
         path: "/AddCard",
         element: <AddCard />,
       }
-    ]
-  }
   
 ];
 
-export default UserAuthorizedRoutes;
+export default sample;
