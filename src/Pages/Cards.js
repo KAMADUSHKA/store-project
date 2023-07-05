@@ -35,6 +35,7 @@ import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const dataCard = [
   {
@@ -165,6 +166,13 @@ export default function Cards() {
     const endCard = startCard + 4;
     setData(dataCard.slice(startCard, endCard));
   };
+//////
+  // const user = useSelector((state) => state.auth.authData.userData.fname)
+
+// console.log("user is a",user)
+///////
+
+
 
 
 
@@ -243,7 +251,22 @@ export default function Cards() {
             >
               Adeona Technogy
             </Typography>
-            <Search>
+//////
+            {/* <Typography>
+              Welcome{user}
+            </Typography> */}
+
+         &nbsp;&nbsp;&nbsp;&nbsp;
+            <Button variant="contained">
+              Sign Out
+            </Button>
+           
+           
+          </Toolbar>
+        </AppBar>
+      </Box>
+      <Box>
+           {/* <Search >
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -251,9 +274,7 @@ export default function Cards() {
                 placeholder="Search…"
                 inputProps={{ "aria-label": "search" }}
               />
-            </Search>
-          </Toolbar>
-        </AppBar>
+            </Search> */}
       </Box>
       <Container>
         <br />
