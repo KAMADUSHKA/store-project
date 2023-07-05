@@ -5,7 +5,7 @@ import { AUTH, LOGOUT } from "../componant/const";
     switch(action.type){
         case AUTH:
             // console.log(action)
-            let encryptedData = encryption({...action?.data.data});
+            let encryptedData = encryption({...action?.data});
             localStorage.setItem("profile",JSON.stringify(encryptedData));
 
             let decryptedData = decryption(encryptedData);

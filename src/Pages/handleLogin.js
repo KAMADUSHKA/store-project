@@ -7,6 +7,8 @@ export const handleLogin =
       // const {data} = await handleLogin(values);
       const { data } = await api.handleLogin(values);
 
+      // console.log(data)
+
       dispatch({ type: AUTH, data });
       setSubmitting(false);
       setLoading(false);

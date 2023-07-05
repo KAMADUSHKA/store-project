@@ -31,14 +31,14 @@ type ErrorDialogStore = {
 const useErrorDialogStore = create<ErrorDialogStore>((set) => ({
   title: "",
   message: "",
-  close: true,
+  close: false,
 }));
 
 export const openErrorDialog = (title: string, message: string) => {
   useErrorDialogStore.setState({
     title: title,
     message: message,
-    close: false,
+    close: true,
   });
 };
 export const closeErrorDialog = () => {

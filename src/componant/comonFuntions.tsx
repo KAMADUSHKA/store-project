@@ -20,7 +20,7 @@ export function encryption(cipherText) {
 export function decryption(cipherText){
     if (cipherText){
         let bytes =CryptoJS.AES.decrypt(cipherText,SECRET_KEY);
-        return JSON.parse(bytes.toString(CryptoJS.enc.utf8))
+        return JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
     }
 }
 
