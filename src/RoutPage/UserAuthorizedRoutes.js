@@ -21,6 +21,10 @@ const UserAuthorizedRoutes = [
     element: <AuthorHeader/>,
     children:[
       {
+        path: "/",
+        element: <Cards />,
+      },
+      {
         path: "/DigiBill",
         element: <DigiBill />,
       },
@@ -59,9 +63,14 @@ const UserAuthorizedRoutes = [
       {
         path: "/AddCard",
         element: <AddCard />,
+      },
+      {
+        path:"*",
+        element:<Cards />
       }
     ]
   }
+  
   
 ];
 

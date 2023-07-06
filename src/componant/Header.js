@@ -1,19 +1,20 @@
-import { AppBar, Avatar, Box, Toolbar, Typography } from "@mui/material";
-import { Button } from "bootstrap";
+import { AppBar, Avatar, Box, Button, Toolbar, Typography } from "@mui/material";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { LOGOUT } from "./const";
 
 export default function Header() {
 
-    const navigate = useNavigate;
+    const navigate = useNavigate();
 
+    const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.authData.userData.fname);
 
   console.log("user is a", user);
 
     const handleChange = () => {
-     localStorage.removeItem("profile");
+      dispatch({type: LOGOUT});
      navigate("/")
     }
 
@@ -41,10 +42,10 @@ export default function Header() {
             >
               Adeona Technogy
             </Typography>
-            //////
-            {/* <Typography>
+
+            <Typography>
               Welcome{user}
-            </Typography> */}
+            </Typography>
              &nbsp;&nbsp;&nbsp;&nbsp;
             <Button variant="contained" onClick={handleChange}>
               Sign Out
