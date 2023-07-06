@@ -167,7 +167,7 @@ export default function Cards() {
     setData(dataCard.slice(startCard, endCard));
   };
 //////
-  // const user = useSelector((state) => state.auth.authData.userData.fname)
+//   const user = useSelector((state) => state.auth.authData.userData.fname)
 
 // console.log("user is a",user)
 ///////
@@ -230,7 +230,7 @@ export default function Cards() {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
+      {/* <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
             <Avatar
@@ -251,10 +251,10 @@ export default function Cards() {
             >
               Adeona Technogy
             </Typography>
-//////
-            {/* <Typography>
+
+            <Typography>
               Welcome{user}
-            </Typography> */}
+            </Typography>
 
          &nbsp;&nbsp;&nbsp;&nbsp;
             <Button variant="contained">
@@ -264,8 +264,8 @@ export default function Cards() {
            
           </Toolbar>
         </AppBar>
-      </Box>
-      <Box>
+      </Box> */}
+      {/* <Box> */}
            {/* <Search >
               <SearchIconWrapper>
                 <SearchIcon />
@@ -275,7 +275,7 @@ export default function Cards() {
                 inputProps={{ "aria-label": "search" }}
               />
             </Search> */}
-      </Box>
+      {/* </Box> */}
       <Container>
         <br />
         <Button

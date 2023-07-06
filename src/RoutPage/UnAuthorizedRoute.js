@@ -1,4 +1,4 @@
-import React, { Children, lazy } from "react";
+import React, { lazy } from "react";
 import Loadable from "./Loadable";
 import UnAthor from "./unAthor";
 
@@ -28,6 +28,9 @@ const unAuthorizedRoutes = [
       },
       
     ]
+},{
+  path:"*",
+  element:<Login/>
 }
 ];
 

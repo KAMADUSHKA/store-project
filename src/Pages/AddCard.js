@@ -85,6 +85,15 @@ export default function AddCard() {
           setFieldValue,
         }) => (
           <form noValidate onSubmit={handleSubmit}>
+            <Button
+               variant="contained"
+               sx={{ margin: 4,  borderRadius: 3  }}
+               onClick={() => {
+                 navigate("/Cards");
+               }}
+              >
+                BACK
+              </Button>
             <Box
               component="main"
               sx={{
