@@ -18,12 +18,16 @@ import { ModifiedTextField } from "../Theam/Theam";
 import { Formik, useField, useFormikContext } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import BackButton from "../MUI/BackButton";
+// import { openErrorDialog } from "../componant/openErrorDialog";
 
 export default function AddCard() {
   const navigate = useNavigate();
   const handleCreating = (values) => {
     console.log("User Data:", values);
     navigate("/Cards");
+    alert("your card create successfully")
+    // openErrorDialog();
   };
 
   const validationSchema = Yup.object().shape({
@@ -86,14 +90,16 @@ export default function AddCard() {
         }) => (
           <form noValidate onSubmit={handleSubmit}>
             <Button
-               variant="contained"
-               sx={{ margin: 4,  borderRadius: 3  }}
-               onClick={() => {
-                 navigate("/Cards");
-               }}
-              >
-                BACK
-              </Button>
+              variant="contained"
+              sx={{ marginTop: 4, marginLeft: 4, borderRadius: 3 }}
+              onClick={() => {
+                navigate("/Cards");
+              }}
+              
+            >
+              {" < "} back{" "}
+            </Button>
+
             <Box
               component="main"
               sx={{
@@ -101,7 +107,7 @@ export default function AddCard() {
                 py: 8,
               }}
             >
-              <Container maxWidth="lg" sx={{ padding: 6 }}>
+              <Container maxWidth="lg" sx={{ padding: 2 }}>
                 <Stack spacing={3}>
                   <div>
                     <Typography variant="h4">Add Card</Typography>
@@ -138,6 +144,12 @@ export default function AddCard() {
                             <Button
                               variant="text"
                               onClick={handleUploadClick}
+                              sx={{
+                                justifyContent: "center",
+                                textAlign: "center",
+                                display: "flex",
+                                margin: "auto",
+                              }}
                             >
                               Upload picture
                             </Button>
