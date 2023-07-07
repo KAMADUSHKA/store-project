@@ -29,7 +29,7 @@ interceptor.interceptors.request.use(
 
 interceptor.interceptors.response.use(
     (Response) => {
-        return Response;
+        return Response;  
     },
     (error) => {
         if (error.response.status === 401) {

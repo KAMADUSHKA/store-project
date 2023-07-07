@@ -102,7 +102,55 @@ const dataCard = [
     cardName: "Smart Connector",
     cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
     route: "/SmartCnt"
+  },{
+    id:2,
+    image: SmartPose,
+    alt: "SmartPose",
+    cardName: "Smart Pose",
+    cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    route: "/SmartPose"
   },
+  {
+    id:3,
+    image: SmartMsg,
+    alt: "SmartMsg",
+    cardName: "Smart Messenger",
+    cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    route: "/SmartMsg"
+  },
+  {
+    id:4,
+    image: CocaCola,
+    alt: "CocaCola",
+    cardName: "CocaCola Management",
+    cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy  ",
+    route: "/CocaCola"
+  },
+  {
+    id:5,
+    image: InApp,
+    alt: "InApp",
+    cardName: "In App",
+    cardDetails: "This impressive paella is a ",
+    route: "/InApp"
+  },
+  {
+    id:6,
+    image: EBCM,
+    alt: "EBCM",
+    cardName: "EBCM",
+    cardDetails:
+      "This impressive paella is a  fgfdtgy ytfgyugy ytftgy This impressive paella is a This impressive paella is a ABC SAB",
+      route: "/EBCM"
+  },
+  {
+    id:7,
+    image: V_Cart,
+    alt: "V_Cart",
+    cardName: "V-Card",
+    cardDetails: "This impressive paella is a  fgfdtgy ytfgyugy ytftgy",
+    route: "/V_Cart"
+  }
 ];
 
 

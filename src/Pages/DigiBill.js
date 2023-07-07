@@ -55,7 +55,7 @@ export default function DigiBill() {
     <Grid>
       <Button
         variant="contained"
-        sx={{ marginTop: 4, marginLeft: 4,  borderRadius: 3  }}
+        sx={{ marginTop: 4, marginLeft: 4,  borderRadius: 3, marginBottom: 3 }}
         onClick={() => {
           Navigate("/Cards");
         }}

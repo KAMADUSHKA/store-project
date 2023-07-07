@@ -19,7 +19,7 @@ import { Formik, useField, useFormikContext } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import BackButton from "../MUI/BackButton";
-// import { openErrorDialog } from "../componant/openErrorDialog";
+
 
 export default function AddCard() {
   const navigate = useNavigate();
@@ -27,12 +27,12 @@ export default function AddCard() {
     console.log("User Data:", values);
     navigate("/Cards");
     alert("your card create successfully")
-    // openErrorDialog();
+   
   };
 
   const validationSchema = Yup.object().shape({
-    cardName: Yup.string().required("Username is required"),
-    cardDetails: Yup.string().required("Username is required"),
+    cardName: Yup.string().required("Card name is required"),
+    cardDetails: Yup.string().required("Card details are required"),
     profile: Yup.mixed()
       .nullable()
       .notRequired()

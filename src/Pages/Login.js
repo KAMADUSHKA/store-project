@@ -54,7 +54,7 @@ export default function Login() {
   // };
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().max(255).required("Username is required"),
+    username: Yup.string().max(255).required("User mail is required"),
     password: Yup.string()
       .max(255)
       .required("Password is required")
@@ -118,9 +118,9 @@ export default function Login() {
                     <br />
                     <ModifiedTextField
                       id="outlined-basic"
-                      label="User Name"
+                      label="User Email"
                       name="username"
-                      placeholder="Enter Your UserName"
+                      placeholder="Enter Your User Email"
                       variant="outlined"
                       fullWidth
                       value={values.username}

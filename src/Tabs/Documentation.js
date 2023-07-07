@@ -170,7 +170,7 @@ export default function Documentation() {
                       variant="contained"
                       color="primary"
                       onChange={handleChange}
-                      onLoad={isSubmitting}
+                      // onLoad={isSubmitting}
                       sx={{ borderRadius: 3 }}
                     >
                       Save
@@ -213,7 +213,7 @@ export default function Documentation() {
                       variant="contained"
                       color="primary"
                       onClick={() => handleEdit(index)}
-                      onLoad={isSubmitting}
+                      // onLoad={isSubmitting}
                       sx={{ borderRadius: 3 }}
                     >
                       Edit
