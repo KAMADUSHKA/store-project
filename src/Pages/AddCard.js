@@ -15,10 +15,11 @@ import {
 import React, { useRef, useState } from "react";
 import { ModifiedTextField } from "../Theam/Theam";
 
-import { Formik, useField, useFormikContext } from "formik";
+import { Formik, } from "formik";
+// import { Formik, useField, useFormikContext } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-import BackButton from "../MUI/BackButton";
+// import BackButton from "../MUI/BackButton";
 
 
 export default function AddCard() {
@@ -56,8 +57,8 @@ export default function AddCard() {
   };
 
   const fileInputField = useRef(null);
-
-  const [image, setImage] = useState("");
+/////////
+  // const [image, setImage] = useState("");
 
   const handleUpload = (e, setFiledValue) => {
     const { files: newFiles } = e.target;

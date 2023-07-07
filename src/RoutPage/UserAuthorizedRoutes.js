@@ -3,7 +3,7 @@ import Loadable from "./Loadable";
 import AuthorHeader from "./AuthorHeader";
 
 
-const Login = Loadable(lazy(()=>import("../Pages/Login"))) ;
+// const Login = Loadable(lazy(()=>import("../Pages/Login"))) ;
 const DigiBill = Loadable(lazy (()=>import("../Pages/DigiBill")));
 const SmartPose = Loadable(lazy(()=>import("../Pages/SmartPose")));
 const SmartMsg = Loadable(lazy(()=>import( "../Pages/SmartMsg")));
