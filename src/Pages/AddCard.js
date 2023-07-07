@@ -66,7 +66,7 @@ export default function AddCard() {
       setUrl(URL.createObjectURL(newFiles[0]));
     }
   };
-  console.log(image);
+  // console.log(image);
 
   const [url, setUrl] = useState(null);
 
@@ -120,7 +120,7 @@ export default function AddCard() {
                       sx={{ justifyContent: "space-around" }}
                     >
                       <Grid item xs={12} sm={5} md={4} lg={4} xl={3} margin={2}>
-                        <Card sx={{ borderRadius: 6 }}>
+                        <Card sx={{ borderRadius: 6 }} elevation={10}>
                           <CardContent>
                             <Box
                               sx={{
@@ -165,7 +165,7 @@ export default function AddCard() {
                         </Card>
                       </Grid>
                       <Grid item xs={12} sm={5} md={6} lg={7} xl={8} margin={2}>
-                        <Card sx={{ borderRadius: 6 }}>
+                        <Card sx={{ borderRadius: 6 }} elevation={10}>
                           <CardHeader
                             title="Package Data"
                             subheader="Add data of your new package"
@@ -191,7 +191,7 @@ export default function AddCard() {
                                     error={Boolean(
                                       touched.cardName && errors.cardName
                                     )}
-                                    required
+                                    // required
                                   />
                                 </Grid>
                                 <Grid item xs={12} md={6} padding={1}>
@@ -206,7 +206,7 @@ export default function AddCard() {
                                     error={Boolean(
                                       touched.cardDetails && errors.cardDetails
                                     )}
-                                    required
+                                    // required
                                   />
                                 </Grid>
 
