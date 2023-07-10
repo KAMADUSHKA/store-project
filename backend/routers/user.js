@@ -6,7 +6,7 @@ router.get('/',(req,res)=>{
 });
 
 router.post('/',(req,res)=>{
-    res.status(200).send({'msg':'sucess post'});
+    res.status(200).send(req.body);
 })
 
 module.exports = router;
