@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  AppBar,
   Avatar,
   Box,
   Button,
@@ -9,15 +8,12 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  CardMedia,
   Container,
   Divider,
   Grid,
   IconButton,
   Pagination,
   Stack,
-  SvgIcon,
-  Toolbar,
   Tooltip,
   Typography,
 } from "@mui/material";
@@ -29,8 +25,6 @@ import InApp from "../componant/InApp.png";
 import EBCM from "../componant/EBCM.png";
 import V_Cart from "../componant/V_Cart.png";
 import SmartCnt from "../componant/SmartCnt.png";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
